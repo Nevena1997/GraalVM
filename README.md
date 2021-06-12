@@ -21,13 +21,13 @@ HOSTED vs NON-HOSTED code explanation in 57th minute of the video.
 In terminal in which you want to build graal, JAVA_HOME should point to downloaded labs JDK. 
 In terminal in which you want to run native-image command (to build native images/executables) JAVA_HOME can point to latest_graalvm_home, but it is not necessary, but you have to add latest_graalvm_home/bin to PATH. It is good to do that in ~/.bashrc so it is always set.
 
-#### Clone graal project
+### Clone graal project
 First clone graal project from https://github.com/oracle/graal.
 This is directory which contains all files and directories nedeed for GraalVM.
 
 To build graal and native-images (executable files written in Java and other languages) you will need ```mx``` tool.
 
-#### mx
+### mx
 
 You need to clone mx tool from https://github.com/graalvm/mx. 
 When you clone project, inside mx folder you will find  executable file named mx. That is pre-built mx tool which can be used for building graal project, native images, and far more.
@@ -40,9 +40,9 @@ alias mx=PATH_TO_MX_EXECUTABLE
 After that inside terminal type ```source ~/.bashrc```. 
 Now you can use command ```mx <command>``` from any location.
 
-#### Building native images:
+### Building native images:
 
-Tools and repos nedeed: 
+Tools and repos nedeed:
 https://github.com/oracle/graal - Directory which contains all files and directories nedeed for GraalVM.
 https://github.com/graalvm/mx - mx build tool (not only a build tool, but general purposes tool).
 
@@ -51,60 +51,55 @@ https://github.com/graalvm/mx - mx build tool (not only a build tool, but genera
 - to find latest built release go to graal/sdk directory, you should have 2 symbolic link pointing to ```latest_graalvm``` and ```latest_graalvm_home```. latest_graalvm_home directory is the directory where the latest build is (no matter from where in project command
 mx build was executed).
 
-Suites are subprojects that can be built using ```mx``` build command. All directories that includes directory named mx.NAME_OF_THE_CURRENT_DIRECTORY are suites. 
-For example vm is suite because inside vm directory we have mx.vm directory. Inside those directories, mx finds some meta data that mx builder uses to build project.
+Suites are subprojects that can be built using ```mx``` build command. All directories that includes directory named mx.NAME_OF_THE_CURRENT_DIRECTORY are suites. For example vm is suite because inside vm directory we have mx.vm directory. Inside those directories, mx finds some meta data that mx builder uses to build project.
 
-Some subprojects (suites I think, or something like that) has dependencies on other subprojects (for example, if we run mx build from
-substratevm directory, it will include all other subprojects on which this subproject is dependent on). Subproject vm has no dependencies
-on other subprojects, so if we run mx build from this directory we won't get much. If we want to build some other subprojects too, we can
-do that in 2 ways:
+Some subprojects (suites I think, or something like that ```?????```) has dependencies on other subprojects (for example, if we run mx build from substratevm directory, it will include all other subprojects on which this subproject is dependent on). Subproject vm has no dependencies
+on other subprojects, so if we run mx build from this directory we won't get much. If we want to build some other subprojects too, we can do that in 2 ways:
 
-1. type mx --dynamicimports /PATH_TO_OTHER_SUBPROJECT build. Note that / here represents root of the graal project. 
-
-Ex: mx --dynamicimports /substratevm build 
+1. type ```mx --dynamicimports /PATH_TO_OTHER_SUBPROJECT build```. Note that / here represents root of the graal project. 
+```
+mx --dynamicimports /substratevm build 
+```
 
 If you need more than one suite you should separate their names by comma
-
-Ex: mx --dynamicimports /substratevm,/sulong,/truffle build
-
+``` 
+mx --dynamicimports /substratevm,/sulong,/truffle build
+```
 You can also use dy instead of dynamic-imports. 
 
-Ex: mx --dy /substratevm,/sulong,/truffle build
+```
+mx --dy /substratevm,/sulong,/truffle build
+```
 
-2. make enviorement. There are some predefined enviorements in mx.vm directory. Content of native image community edition enviorement is:
-
+2. make enviorement. There are some predefined enviorements in ```mx.vm``` directory. Content of native image community edition enviorement is:
+```
 DYNAMIC_IMPORTS=/substratevm
 DISABLE_INSTALLABLES=true
 EXCLUDE_COMPONENTS=pbm
 NATIVE_IMAGES=native-image,lib:native-image-agent
+```
+If you want to use enviorement to build graal, just type ```mx --env NAME_OF_THE_ENVIOREMENT build```.
+```
+mx --env ni-ce build
+```
 
-If you want to use enviorement to build graal, just type mx --env NAME_OF_THE_ENVIOREMENT build
-
-Ex: mx --env ni-ce build
--------------------------------------------------------------------------------------------------------------------------------------------------------
+### JDK
 JDK with JVMCI - so-called labs JDK - https://github.com/graalvm/labs-openjdk-11/releases. JAVA_HOME should be set to this JDK. 
 You can do this in 2 ways:
 
-1. From a website https://github.com/graalvm/labs-openjdk-11/releases, pick a release for your Operating system and distribution 
-(Linux for example). Then unzip archive. If you are using Linux which is highly recommended command is 
-tar -xf name_of_the_archive.tar.gz. After that, type export JAVA_HOME=ABSOLUTE_PATH_TO_UNZIPPED_DIRECTORY.
+1. From a website https://github.com/graalvm/labs-openjdk-11/releases, pick a release for your Operating system and distribution  (Linux for example). Then unzip archive. If you are using **Linux which is highly recommended** command is ```tar -xf name_of_the_archive.tar.gz```. After that, type ```export JAVA_HOME=ABSOLUTE_PATH_TO_UNZIPPED_DIRECTORY```.
 
-2. If you have mx installed and configured, just type mx fetch-jdk --to ABSOLUTE_PATH_TO_DIRECTORY. You should get console menu
-where you choose Java 11. Java 8 is also supported, but you need Java 11 most of the time. This command will find, download and extract
-needed archive. After that just type export JAVA_HOME=ABSOLUTE_PATH_TO_UNZIPPED_DIRECTORY.
+2. If you have ```mx``` installed and configured, just type ```mx fetch-jdk --to ABSOLUTE_PATH_TO_DIRECTORY```. You should get console menu where you choose Java 11. Java 8 is also supported, but you need Java 11 most of the time. This command will find, download and extract needed archive. After that just type ```export JAVA_HOME=ABSOLUTE_PATH_TO_UNZIPPED_DIRECTORY```.
 
 
-After building GraalVM release, go to bin directory inside latest_graalvm_home. There you can see different executables including java
-and java. Those are executables that can be used instead of default javac and java executables. Too see which executable is set by 
-default type which java command in terminal.
+After building GraalVM release, go to bin directory inside latest_graalvm_home. There you can see different executables including java and java. Those are executables that can be used instead of default javac and java executables. Too see which executable is set by  default type which java command in terminal.
 
-Ex: which java
-Output: /usr/bin/java
+```which java```
+Output: ```/usr/bin/java```
 
-If you want to make your graalvm java executable deafult, you should add latest_graalvm_home/bin to PATH and set JAVA_HOME to 
-latest_graalvm_home.
+If you want to make your graalvm java executable deafult, you should add latest_graalvm_home/bin to PATH and set JAVA_HOME to  latest_graalvm_home.
 
-Ex: export PATH=PATH_TO_LATEST_GRAALVM_HOME_DIRECTORY/bin
+```export PATH=PATH_TO_LATEST_GRAALVM_HOME_DIRECTORY/bin```
 
 Now, if you type "which java" you will get the latest built graalvm release. Additionally, if you make any changes and then rebuild 
 graalvm, it will still point to the latest version because symbolic link we set JAVA_HOME to always points to the latest built release. 
@@ -140,36 +135,32 @@ If we measure execution time for those commands we get the following:
 
 ```time java HelloWorld```
 Output:
-
+```
 Hello World!
-
+```
 real	0m0.229
 user	0m0.094s
 sys	0m0.039s
 
 ```time ./helloworld```
 Output:
+```
 Hello World!
-
+```
 real	0m0.009s
 user	0m0.001s
 sys	0m0.008s
 
 The difference is obvious because with native images we are running executables, similar to C executables which is much faster.
 
-Building phases (short):
+### Building phases (short):
 
-Analysis: going through all Java functions nedeed in program. You cannot take whole Java standard library and put it into executable,
-so this phase finds out all important and used functions and takes them, compiles them and make binaries from them which are part of 
+- **Analysis**: going through all Java functions nedeed in program. You cannot take whole Java standard library and put it into executable, so this phase finds out all important and used functions and takes them, compiles them and make binaries from them which are part of 
 created executable.
 
-We can distinct hosted and non-hosted code. Hosted code is Java code that executes during building of native image. On the other hand 
-non-hosted code is part of code that runs during program execution. There is some code that executes only during build, and some code
-is used only in executios. To distinct those codes, annotations are used. Some classes are partially hosted, partially non-hosted, so 
-annotations help to distinct those types of codes.
+We can distinct **hosted** and **non-hosted** code. Hosted code is Java code that executes during building of native image. On the other hand non-hosted code is part of code that runs during program execution. There is some code that executes only during build, and some code is used only in executios. To distinct those codes, annotations are used. Some classes are partially hosted, partially non-hosted, so annotations help to distinct those types of codes.
 
-Debugging:
-
+- **Debugging**:
 If you want to debug non-hosted code, you should use gdb, or any other debugger thath can debug binary code (executables). To build 
 image with debug symbols add flag -g to native-image compilation process. 
 
