@@ -37,18 +37,18 @@ After that inside terminal type ```source ~/.bashrc```.
 Now you can use command ```mx <command>``` from any location.
 
 ### Building native images:
-
->**IMPORTANT:** 
-In terminal in which you want to build graal, JAVA_HOME should point to downloaded labs JDK. 
-In terminal in which you want to run native-image command (to build native images/executables) JAVA_HOME can point to latest_graalvm_home, but it is not necessary, but you have to add latest_graalvm_home/bin to PATH. It is good to do that in ~/.bashrc so it is always set.
-
 Tools and repos nedeed:
+
 https://github.com/oracle/graal - Directory which contains all files and directories nedeed for GraalVM.
 https://github.com/graalvm/mx - mx build tool (not only a build tool, but general purposes tool).
 
 - ```mx build``` command builds one graal release (if you want to build one specific graal subproject like truffle, sulong, compiler etc, you should go to the specific directory and then run command ```mx build``` from that directory)
 - to find release you built just type ```mx graalvm-home```
 - to find latest built release go to graal/sdk directory, you should have 2 symbolic link pointing to ```latest_graalvm``` and ```latest_graalvm_home```. latest_graalvm_home directory is the directory where the latest build is (no matter from where in project command mx build was executed).
+
+>**IMPORTANT:** 
+In terminal in which you want to build graal, JAVA_HOME should point to downloaded labs JDK. 
+In terminal in which you want to run native-image command (to build native images/executables) JAVA_HOME can point to latest_graalvm_home, but it is not necessary, but you have to add latest_graalvm_home/bin to PATH. It is good to do that in ~/.bashrc so it is always set.
 
 Suites are subprojects that can be built using ```mx``` build command. All directories that includes directory named mx.NAME_OF_THE_CURRENT_DIRECTORY are suites. For example vm is suite because inside vm directory we have mx.vm directory. Inside those directories, mx finds some meta data that mx builder uses to build project.
 
