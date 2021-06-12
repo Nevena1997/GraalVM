@@ -17,10 +17,6 @@ HOSTED vs NON-HOSTED code explanation in 57th minute of the video.
 
 ## Installation
 
->**IMPORTANT:** 
-In terminal in which you want to build graal, JAVA_HOME should point to downloaded labs JDK. 
-In terminal in which you want to run native-image command (to build native images/executables) JAVA_HOME can point to latest_graalvm_home, but it is not necessary, but you have to add latest_graalvm_home/bin to PATH. It is good to do that in ~/.bashrc so it is always set.
-
 ### Clone graal project
 First clone graal project from https://github.com/oracle/graal.
 This is directory which contains all files and directories nedeed for GraalVM.
@@ -42,21 +38,23 @@ Now you can use command ```mx <command>``` from any location.
 
 ### Building native images:
 
+>**IMPORTANT:** 
+In terminal in which you want to build graal, JAVA_HOME should point to downloaded labs JDK. 
+In terminal in which you want to run native-image command (to build native images/executables) JAVA_HOME can point to latest_graalvm_home, but it is not necessary, but you have to add latest_graalvm_home/bin to PATH. It is good to do that in ~/.bashrc so it is always set.
+
 Tools and repos nedeed:
 https://github.com/oracle/graal - Directory which contains all files and directories nedeed for GraalVM.
 https://github.com/graalvm/mx - mx build tool (not only a build tool, but general purposes tool).
 
 - ```mx build``` command builds one graal release (if you want to build one specific graal subproject like truffle, sulong, compiler etc, you should go to the specific directory and then run command ```mx build``` from that directory)
 - to find release you built just type ```mx graalvm-home```
-- to find latest built release go to graal/sdk directory, you should have 2 symbolic link pointing to ```latest_graalvm``` and ```latest_graalvm_home```. latest_graalvm_home directory is the directory where the latest build is (no matter from where in project command
-mx build was executed).
+- to find latest built release go to graal/sdk directory, you should have 2 symbolic link pointing to ```latest_graalvm``` and ```latest_graalvm_home```. latest_graalvm_home directory is the directory where the latest build is (no matter from where in project command mx build was executed).
 
 Suites are subprojects that can be built using ```mx``` build command. All directories that includes directory named mx.NAME_OF_THE_CURRENT_DIRECTORY are suites. For example vm is suite because inside vm directory we have mx.vm directory. Inside those directories, mx finds some meta data that mx builder uses to build project.
 
-Some subprojects (suites I think, or something like that ```?????```) has dependencies on other subprojects (for example, if we run mx build from substratevm directory, it will include all other subprojects on which this subproject is dependent on). Subproject vm has no dependencies
-on other subprojects, so if we run mx build from this directory we won't get much. If we want to build some other subprojects too, we can do that in 2 ways:
+Some subprojects (suites I think, or something like that ```?????```) has dependencies on other subprojects (for example, if we run ```mx build``` from substratevm directory, it will include all other subprojects on which this subproject is dependent on). Subproject vm has no dependencies on other subprojects, so if we run ```mx build``` from this directory we won't get much. If we want to build some other subprojects too, we can do that in 2 ways:
 
-1. type ```mx --dynamicimports /PATH_TO_OTHER_SUBPROJECT build```. Note that / here represents root of the graal project. 
+1. Type ```mx --dynamicimports /PATH_TO_OTHER_SUBPROJECT build```. Note that / here represents root of the graal project. 
 ```
 mx --dynamicimports /substratevm build 
 ```
@@ -71,7 +69,7 @@ You can also use dy instead of dynamic-imports.
 mx --dy /substratevm,/sulong,/truffle build
 ```
 
-2. make enviorement. There are some predefined enviorements in ```mx.vm``` directory. Content of native image community edition enviorement is:
+2. Make enviorement. There are some predefined enviorements in ```mx.vm``` directory. Content of native image community edition enviorement is:
 ```
 DYNAMIC_IMPORTS=/substratevm
 DISABLE_INSTALLABLES=true
@@ -101,8 +99,7 @@ If you want to make your graalvm java executable deafult, you should add latest_
 
 ```export PATH=PATH_TO_LATEST_GRAALVM_HOME_DIRECTORY/bin```
 
-Now, if you type "which java" you will get the latest built graalvm release. Additionally, if you make any changes and then rebuild 
-graalvm, it will still point to the latest version because symbolic link we set JAVA_HOME to always points to the latest built release. 
+Now, if you type "which java" you will get the latest built graalvm release. Additionally, if you make any changes and then rebuild graalvm, it will still point to the latest version because symbolic link we set JAVA_HOME to always points to the latest built release. 
 
 After we build graal and native image tool (for building native images/executables) we need one Java class to test everything.
 
@@ -129,7 +126,7 @@ Then we can run it using command ```java HelloWorld```.
 
 If you want to make executable java file with native-image to build it, use command ```javac HelloWorld.java``` and then ```native-image HelloWorld```
 
-After this command we have an executable named helloworld
+After this command we have an executable named ```helloworld```.
 
 If we measure execution time for those commands we get the following:
 
@@ -161,16 +158,16 @@ created executable.
 We can distinct **hosted** and **non-hosted** code. Hosted code is Java code that executes during building of native image. On the other hand non-hosted code is part of code that runs during program execution. There is some code that executes only during build, and some code is used only in executios. To distinct those codes, annotations are used. Some classes are partially hosted, partially non-hosted, so annotations help to distinct those types of codes.
 
 - **Debugging**:
-If you want to debug non-hosted code, you should use gdb, or any other debugger thath can debug binary code (executables). To build 
-image with debug symbols add flag -g to native-image compilation process. 
-
-```native-image HelloWorld -g```
+If you want to debug non-hosted code, you should use gdb, or any other debugger thath can debug binary code (executables). To build  image with debug symbols add flag ```-g``` to native-image compilation process. 
+```
+native-image HelloWorld -g
+```
 If you want to turn off optimizations you can add flag ```-H:Optimize=0``` during compilation.
 ```
 native-image HelloWorld -g -H:Optimize=0
 ```
 
-Adding breakpoint using gdb:
+**Adding breakpoint using gdb:**
 b ClassName::functionName
 ```HelloWorld::main```
 Running code using gdb:
@@ -178,7 +175,7 @@ Running code using gdb:
 To run program in debug mode using gdb type run
 ```(gdb) run```
 
-GDB Layouts:
+**GDB Layouts:**
 Too see src file and line where execution stopped type layout src:
 ```(gdb) layout src```
 To see assembly code type layout src:
@@ -186,29 +183,23 @@ To see assembly code type layout src:
 To see memory registers type layout reg:
 ```(gdb) layout reg```
 
-Command in gdb looks one line as an instruction and executes it as one instruction. Similar as step over command in IntelliJ.
+Command ```in``` gdb looks one line as an instruction and executes it as one instruction. Similar as step over command in IntelliJ.
+Command ```step``` executes line but if the instruction represents call of a function, step will go into function body and will execute function instructions one by one. Similiar to Same into command in IntelliJ. 
+Command ```bt``` gives us backtrace of current stack.
 
-Command step executes line but if the instruction represents call of a function, step will go into function body and will execute 
-function instructions one by one. Similiar to Same into command in IntelliJ. 
+If you want to debug hosted code, you can use standard debugger from IDE. During build of image using native-image command, we have to specify that we want debugging of hosted code using ```--debug-attach```.
+```
+native-image --debug-attach HelloWorld
+```
+> **IMPORTANT:**
+You have to set breakpoint inside IDE, use native-image command with mentioned option, and then run debug mode inside IDE to debug hosted code.
 
-Command bt gives us backtrace of current stack.
--------------------------------------------------------------------------------------------------------------------------------------------------------
-If you want to debug hosted code, you can use standard debugger from IDE. During build of image using native-image command, we have to 
-specify that we want debugging of hosted code using --debug-attach.
-
-Ex: native-image --debug-attach HelloWorld
-
-!!!!!!You have to set breakpoint inside IDE, use native-image command with mentioned option, and then run debug mode inside IDE to 
-debug hosted code.!!!!!!
-
-To see how to get native code from Java code you can see internal Graal representation using IdealGraphVisualizer. This software can
-be downloaded from https://www.oracle.com/downloads/graalvm-downloads.html. Just unzip archive, position to directory where you unzipped
-it, go to bin directory and then run idealgraphvisualizer executable.
-
-Ex: ./idealgraphvisualizer
-
+To see how to get native code from Java code you can see internal Graal representation using IdealGraphVisualizer. This software can be downloaded from https://www.oracle.com/downloads/graalvm-downloads.html. Just unzip archive, position to directory where you unzipped it, go to bin directory and then run idealgraphvisualizer executable.
+```
+./idealgraphvisualizer
+```
 To build executable and see it's internal representation type the following:
-
-Ex: native-image HelloWorld -H:Dump=:3 -H:MethodFilter=HelloWorld.main -H:Optimize=0 -H:PrintGraph=Network
-
+```
+native-image HelloWorld -H:Dump=:3 -H:MethodFilter=HelloWorld.main -H:Optimize=0 -H:PrintGraph=Network
+```
 More about IdealGraphVisualizer you can find at https://docs.oracle.com/en/graalvm/enterprise/19/guide/tools/ideal-graph-visualizer.html.
