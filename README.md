@@ -164,39 +164,27 @@ We can distinct **hosted** and **non-hosted** code. Hosted code is Java code tha
 If you want to debug non-hosted code, you should use gdb, or any other debugger thath can debug binary code (executables). To build 
 image with debug symbols add flag -g to native-image compilation process. 
 
-Ex: native-image HelloWorld -g
-
-If you want to turn off optimizations you can add flag -H:Optimize=0 during compilation.
-
-Ex: native-image HelloWorld -g -H:Optimize=0
+```native-image HelloWorld -g```
+If you want to turn off optimizations you can add flag ```-H:Optimize=0``` during compilation.
+```
+native-image HelloWorld -g -H:Optimize=0
+```
 
 Adding breakpoint using gdb:
-
 b ClassName::functionName
-
-Ex: HelloWorld::main
-
+```HelloWorld::main```
 Running code using gdb:
-
-gdb ./helloworld
-
+```gdb ./helloworld```
 To run program in debug mode using gdb type run
-
-Ex: (gdb) run
+```(gdb) run```
 
 GDB Layouts:
-
 Too see src file and line where execution stopped type layout src:
-
-Ex: (gdb) layout src
-
+```(gdb) layout src```
 To see assembly code type layout src:
-
-Ex: (gdb) layout asm
-
+```(gdb) layout asm```
 To see memory registers type layout reg:
-
-Ex: (gdb) layout reg
+```(gdb) layout reg```
 
 Command in gdb looks one line as an instruction and executes it as one instruction. Similar as step over command in IntelliJ.
 
