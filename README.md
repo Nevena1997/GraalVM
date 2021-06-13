@@ -1,13 +1,13 @@
 # GraalVM
-## Getting Started
+## Getting Started !!!
 
-Here you will find information about tools needed to build native-image tool which can compiler Java programs into native executables. Also you will learn how to install and use those tools, how to build executables for Java programs. Important thing is to learn how to debug some specific piece of code, which will also be presented in this document. There are two types of code in GraalVM project, hosted and non-hosted. You will learn the difference here.
+Here you will find information about tools needed to build `native-image` tool which can compile Java programs into native executables. Also you will learn how to install and use those tools, how to build executables for Java programs. Important thing is to learn how to debug some specific piece of code, which will also be presented in this document. There are two types of code in GraalVM project, hosted and non-hosted. You will learn the difference here.
 
-**GraalVM** is virtual machine which can run different languages. First idea was to make Java faster, but soon it became much more. One runtime for all languages. You can read more about GraalVM [here](https://www.graalvm.org/docs/introduction/).
+**GraalVM** is a virtual machine which can run different languages. First idea was to make Java faster, but soon it became much more. One runtime for all languages. You can read more about GraalVM [here](https://www.graalvm.org/docs/introduction/).
 
 ## Prerequisites
 
-It is recommended to use a Linux-based operating system. This guide assumes you are running Ubuntu, however the Ubuntu-specific commands such as package installations can be translated to an arbitrary distribution.
+It is recommended to use a **Linux-based** operating system. This guide assumes you are running Ubuntu, however the Ubuntu-specific commands such as package installations can be translated to an arbitrary distribution.
 
 In order to successfully build and run Graal projects, one needs to have the following dependencies satisfied:
 - `git` 
@@ -18,12 +18,29 @@ In order to successfully build and run Graal projects, one needs to have the fol
 ## Installation
 
 ### Clone graal project
-First, clone the entire graal repository:
+First, clone the entire [Graal](https://github.com/oracle/graal/) repository:
 ```sh
-git clone https://github.com/oracle/graal
+$ git clone https://github.com/oracle/graal
 ```
 
-This is directory which contains all files and directories needed for GraalVM. In order to successfully build Graal, you will need a command-line tool called `mx`.
+This repository consists of several subdirectories:
+* [GraalVM SDK](https://github.com/oracle/graal/sdk/README.md) contains long term supported APIs of GraalVM.
+* [GraalVM compiler](https://github.com/oracle/graal/tree/master/compiler/README.md) written in Java that supports both dynamic and static compilation and can integrate with
+the Java HotSpot VM or run standalone.
+* [Truffle](https://github.com/oracle/graal/truffle/README.md) language implementation framework for creating languages and instrumentations for GraalVM.
+* [Tools](https://github.com/oracle/graal/tools/README.md) contains a set of tools for GraalVM languages
+implemented with the instrumentation framework.
+* [Substrate VM](https://github.com/oracle/graal/substratevm/README.md) framework that allows ahead-of-time (AOT)
+compilation of Java applications under closed-world assumption into executable
+images or shared objects.
+* [Sulong](https://github.com/oracle/graal/sulong/README.md) is an engine for running LLVM bitcode on GraalVM.
+* [GraalWasm](https://github.com/oracle/graal/wasm/README.md) is an engine for running WebAssembly programs on GraalVM.
+* [TRegex](https://github.com/oracle/graal/regex/README.md) is an implementation of regular expressions which leverages GraalVM for efficient compilation of automata.
+* [VM](https://github.com/oracle/graal/vm/README.md) includes the components to build a modular GraalVM image.
+* [VS Code](https://github.com/oracle/graal/vscode/README.md) provides extensions to Visual Studio Code that support development of polyglot applications using GraalVM.
+
+
+In order to successfully build Graal, you will need a command-line tool called `mx`.
 
 ### mx
 
@@ -31,32 +48,28 @@ This is directory which contains all files and directories needed for GraalVM. I
 
 First, clone the `mx` repository:
 ```sh
-git clone https://github.com/graalvm/mx/
+$ git clone https://github.com/graalvm/mx/
 ```
 
 `mx` can be run directly (i.e., `python mx/mx.py ...`), but is more commonly invoked via the `mx/mx` bash script. Adding the `mx/` directory to your `PATH` simplifies executing `mx`.
 
-For `bash`, you can add alias to your .bashrc file so you can use command ```mx``` from anywhere. 
-Path to .bashrc file is ~/.bashrc or /home/user/.bashrc. You open that file and in the bottom you add alias like this: 
+```sh
+$ export PATH=/path/to/mx/directory:$PATH
 ```
-alias mx=PATH_TO_MX_EXECUTABLE 
-```
-After that inside terminal type ```source ~/.bashrc```. 
-Now you can use command ```mx <command>``` from any location.
+
+You can also add this line to your shell configuration file. For `bash`, you can add it to your `.bashrc` file. Don't forget to reload your shell configuration after adding those changes.
+
+Alternatively, you can also add an alias to your shell configuration file so you can use `mx` from anywhere:
+```sh
+$ alias mx=/path/to/mx/executable 
+``` 
+
 
 ### Building native images:
-Tools and repos nedeed:
 
-https://github.com/oracle/graal - Directory which contains all files and directories nedeed for GraalVM.
-https://github.com/graalvm/mx - mx build tool (not only a build tool, but general purposes tool).
-
-- ```mx build``` command builds one graal release (if you want to build one specific graal subproject like truffle, sulong, compiler etc, you should go to the specific directory and then run command ```mx build``` from that directory)
+- ```mx build``` command builds one Graal release (if you want to build one specific graal subproject like truffle, sulong, compiler etc, you should go to the specific directory and then run command ```mx build``` from that directory)
 - to find release you built just type ```mx graalvm-home```
 - to find latest built release go to graal/sdk directory, you should have 2 symbolic link pointing to ```latest_graalvm``` and ```latest_graalvm_home```. latest_graalvm_home directory is the directory where the latest build is (no matter from where in project command mx build was executed).
-
->**IMPORTANT:** 
-In terminal in which you want to build graal, JAVA_HOME should point to downloaded labs JDK. 
-In terminal in which you want to run native-image command (to build native images/executables) JAVA_HOME can point to latest_graalvm_home, but it is not necessary, but you have to add latest_graalvm_home/bin to PATH. It is good to do that in ~/.bashrc so it is always set.
 
 Suites are subprojects that can be built using ```mx``` build command. All directories that includes directory named mx.NAME_OF_THE_CURRENT_DIRECTORY are suites. For example vm is suite because inside vm directory we have mx.vm directory. Inside those directories, mx finds some meta data that mx builder uses to build project.
 
@@ -97,13 +110,16 @@ You can do this in two ways:
 
 2. If you have ```mx``` installed and configured, just type ```mx fetch-jdk --to ABSOLUTE_PATH_TO_DIRECTORY```. You should get console menu where you choose Java 11. Java 8 is also supported, but you need Java 11 most of the time. This command will find, download and extract needed archive. After that just type ```export JAVA_HOME=ABSOLUTE_PATH_TO_UNZIPPED_DIRECTORY```.
 
+>**IMPORTANT:** 
+In terminal in which you want to build graal, JAVA_HOME should point to downloaded labs JDK. 
+In terminal in which you want to run native-image command (to build native images/executables) JAVA_HOME can point to latest_graalvm_home, but it is not necessary, but you have to add latest_graalvm_home/bin to PATH. It is good to do that in ~/.bashrc so it is always set.
 
 After building GraalVM release, go to bin directory inside latest_graalvm_home. There you can see different executables including javac and java. Those are executables that can be used instead of default javac and java executables. Too see which executable is set by  default type which java command in terminal.
 
 ```which java```
 Output: ```/usr/bin/java```
 
-If you want to make your graalvm java executable deafult, you should add latest_graalvm_home/bin to PATH and set JAVA_HOME to  latest_graalvm_home.
+If you want to make your graalvm java executable deafult, you should add in .bashrc latest_graalvm_home/bin to PATH and set JAVA_HOME to latest_graalvm_home.
 
 ```export PATH=PATH_TO_LATEST_GRAALVM_HOME_DIRECTORY/bin```
 
@@ -165,7 +181,7 @@ created executable.
 
 We can distinct **hosted** and **non-hosted** code. Hosted code is Java code that executes during building of native image of the program. On the other hand non-hosted code is part of code that runs during program execution. There is some code that executes only during build, and some code is used only in execution. To distinct those codes, annotations are used. Some classes are partially hosted, partially non-hosted, so annotations help to distinct those types of codes.
 
-## Debugging
+### Debugging
 Debugging hosted and non-hosted code is different. To debug hosted code you can use IDE debugger and if you want to debug non-hosted code, you have to use debugger that can debug executables (gdb for example).
 
 #### Debugging non-hosted code
@@ -206,6 +222,11 @@ Command ```step``` executes line but if the instruction represents call of a fun
 
 Command ```bt``` gives us backtrace of current stack.
 
+#### IDE (IntelliJ)
+
+Download and install the latest [IntelliJ IDEA Community Edition]( https://www.jetbrains.com/idea/download/).
+!!!!https://github.com/graalvm/mx/blob/master/docs/IDE.md.!!!!
+
 #### Debugging hosted code
 
 If you want to debug hosted code, you can use standard debugger from IDE. During build of image using native-image command, we have to specify that we want debugging of hosted code using ```--debug-attach```.
@@ -223,4 +244,6 @@ To build executable and see it's internal representation type the following:
 ```
 native-image HelloWorld -H:Dump=:3 -H:MethodFilter=HelloWorld.main -H:Optimize=0 -H:PrintGraph=Network
 ```
-More about IdealGraphVisualizer you can find at https://docs.oracle.com/en/graalvm/enterprise/19/guide/tools/ideal-graph-visualizer.html.
+
+### Git
+### More 
