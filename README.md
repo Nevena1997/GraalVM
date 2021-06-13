@@ -265,6 +265,8 @@ $ native-image --debug-attach HelloWorld
 ```
 *Note: You have to set breakpoint inside IDE, use `native-image` command with mentioned option, and then run debug mode inside IDE to debug hosted code.*
 
+## Visualization
+
 To see how to get native code from Java code you can see internal Graal representation using [IdealGraphVisualizer](https://www.oracle.com/downloads/graalvm-downloads.html). Just unzip archive, position to directory where you unzipped it, go to `bin` directory and then run `idealgraphvisualizer`:
 ```sh
 $ ./idealgraphvisualizer
@@ -274,7 +276,9 @@ To build an executable and see it's internal representation type the following:
 $ native-image HelloWorld -H:Dump=:3 -H:MethodFilter=HelloWorld.main -H:Optimize=0 -H:PrintGraph=Network
 ```
 
-## More about GraalVM and GitHub
+More about IdealGraphVisualizer you can find at [here](https://docs.oracle.com/en/graalvm/enterprise/19/guide/tools/ideal-graph-visualizer.html).
+
+## More about GraalVM contributions
 You can read more about GraalVM community contributors [here](https://www.graalvm.org/community/contributors/).
 
 You can read more about GitHub [here](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests).

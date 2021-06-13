@@ -20,7 +20,9 @@ Graal representation using IdealGraphVisualizer.
 Ovo je sada nova tema kojoj nedostaje novi naslov. Takodje, sama recenica 
 mi deluje da ne oslikava bas najbolje cemu sluzi vizuelizator, pa bi 
 bilo dobro to precizirati i dodati jos nesto na tu temu.
+
 -----> Ispravljeno. Obrisano je sve jer mi se cini da je tema preobimna i da zahteva dosta predznanja koje mi jos uvek nemamo.
+-----> Komentar 22. 
 
 18) Kao sto smo vec raspravili, treba dodati reci o tome kako projekat 
 funkcionise, odnosno da se koristi git/github, da se izmene realizuju 
@@ -36,16 +38,29 @@ When you solve some issue or make a contribution that you want to share, you sho
 Naslov bi mogao da bude How to Contribute to GraalVM?
 
 20) Eksportovanje u terminalu i upisivanje u bashrc fajl su razlicite stvari ne smeta da ostane i jedno i drugo u uputstvu, tako da bih ja vratila komentar na tu temu, tj posebno upotrebu komande source kako se ne bi terminal ukljucivao/iskljucivao bez potrebe.  
+-----> Nisam sigurna da li je ovaj komentar bio pre ili posle formatiranja i da li je sada sve u redu.
+Ostaje ovaj komentar. 
 
 22) Zasto je ovaj link obrisan, ta tema je veoma vazna:
 More about IdealGraphVisualizer you can find at https://docs.oracle.com/en/graalvm/enterprise/19/guide/tools/ideal-graph-visualizer.html
 -----> Kao za komentar 17. Ukoliko zelimo da obradimo i ovu temu, mislim da je potrebno dati neka uputstva cemu to sluzi, kako funkcionise, definisati neke stvari. Nisam sigurna da sam sve to dobro razumela da bih se upustala u odetaljnu obradu. 
+-----> Vraćen je naslov. Eventualno dodatno pitati Ivana i Milana za pomoć sa ovom sekcijom.
 
 24)
 Nisam sigurna da je potrebno kopirati onilki tekst sa graal strane, svaki copy-paste je u sustini los. Bolje je da se samo stave ti linkovi bez komiranog teksta ili da se kaze na kom linku moze da se pogelda struktura direktorijuma...
 
+-----> Ivanova i moja ideja je bila da na neki način prikupimo sva objašnjenja iz različitih dokumenata i stavimo ih na jedno mesto, tj. u ovaj fajl. Zbog toga mislim da ti kopirani delovi nisu loši jer daju osnovne informacije potrebne za razumevanje. Mislim da smo dodali i linkove ka tim opštijim dokumentima, ali ukoliko primetite da nam je promaklo nešto, dodaćemo.
+
+Ok, ako tako zelite, neka ostane.
+
+
 25) GraalVM getting started --- mislim da graal ima svoj getting started i da je ovo neki nas interni getting started koji bi trebalo da se drugacije zove. Na primer, getting started for phd students ili tako nesto?
+-----> Znaci uzvika su u nekoj verziji bili upravo zbog toga sto smo i mi razmisljali o najboljem resenju za naslov. Slažem se da bi bilo bolje preimenovati, ali nisam sigurna šta bi bilo najbolje rešenje za to. Što se mene tiče, skroz je u redu i Vaš predlog. (Nevena)
 
 26) Prvi pasus razbijte u listu stavki koje ce biti obradjene kako bi se ujednacio stil i kako bi se poboljsala citljivost tog pasusa.
+
+
+27) TODO deo https://github.com/Nevena1997/GraalVM/blob/main/README.md#native-image-build-phases-short 
+Da li je neko od vas mozda pronasao neku dokumentaciju na ovu temu? Nedostaje opis svake od faza build-ovanja.
 
 
