@@ -5,12 +5,13 @@ Alat mx treba da se izbilduje projekat i da se napravi alat koji posle pravi
 nativne slike. tj, kada izbildujemo native-image nama uopste ne treba mx alat 
 da bi sa njime napravili executable files written in Java and other languages. 
 Dakle, ovo treba preformulisati. 
+-----> Ispravljeno.
 
 4) Ovaj naslov
 Building native images:
 ne odgovara sadrzaju teksta. Ovde se prica o tome kako se bilduje projekat, 
 a ne nativna slika za neki konkretni java program. 
------> Ispravljeno
+-----> Ispravljeno.
 
 8) Ovaj pasus
 
