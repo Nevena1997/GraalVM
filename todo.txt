@@ -14,19 +14,6 @@ Ovo nije jasno napisano, treba preciznije. Koliko se secam, negde portovi
 komunikacije treba da se preciziraju. Ko nije radio debagovanje na ovaj 
 nacin, to mora prvi put da mu se kaze eksplicitno.
 
-18) Kao sto smo vec raspravili, treba dodati reci o tome kako projekat 
-funkcionise, odnosno da se koristi git/github, da se izmene realizuju 
-kroz pr-ove. Dodati da vise o tome se moze procitati ovde
-https://www.graalvm.org/community/contributors/
-a vise o radu na github-u sa pr-ovima se moze pogledati npr ovde
-https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests
------> Ispravljeno. Ne znam da li biste Vi jos nesto dodali u ovoj sekciji? Kako da nazovemo sekciju?
-
-Ovde treba da upotpunite pricu zasto je taj tekst tu ubacen. Dakle, ovako:
-When you solve some issue or make a contribution that you want to share, you should find the appropriate way to contribute to Graal. Read about common ways to collaborate on GraalVM here. If you choose to propose changes with pull requests, learn more about the GitHub pull requests here.  
-
-Naslov bi mogao da bude How to Contribute to GraalVM?
-
 20) Eksportovanje u terminalu i upisivanje u bashrc fajl su razlicite stvari ne smeta da ostane i jedno i drugo u uputstvu, tako da bih ja vratila komentar na tu temu, tj posebno upotrebu komande source kako se ne bi terminal ukljucivao/iskljucivao bez potrebe.  
 -----> Nisam sigurna da li je ovaj komentar bio pre ili posle formatiranja i da li je sada sve u redu.
 Ostaje ovaj komentar. 
