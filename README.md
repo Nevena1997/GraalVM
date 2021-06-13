@@ -1,6 +1,11 @@
-# GraalVM getting started
+# GraalVM getting started (for phd students)
 
-Here you will find information about tools needed to build `native-image` tool which can compile Java programs into native executables. Also you will learn how to install and use those tools, how to build executables for Java programs. Important thing is to learn how to debug some specific piece of code, which will also be presented in this document. There are two types of code in GraalVM project, hosted and non-hosted. You will learn the difference here.
+Here you will find information about:
+ -  tools needed to build `native-image` tool which can compile Java programs into native executables;
+ -  how to install and use those tools;
+ -  how to build executables for Java programs;
+ -  how to debug some specific piece of code;
+ -  the difference between hosted and non-hosted types of code in GraalVM project.
 
 **GraalVM** is a virtual machine which can run different languages. First idea was to make Java faster, but soon it became much more. One runtime for all languages. You can read more about GraalVM [here](https://www.graalvm.org/docs/introduction/).
 
@@ -63,7 +68,10 @@ $ git clone https://github.com/graalvm/mx/
 $ export PATH=/path/to/mx/directory:$PATH
 ```
 
-You can also add this line to your shell configuration file. For `bash`, you can add it to your `.bashrc` file. Don't forget to reload your shell configuration after adding those changes.
+You can also add this line to your shell configuration file. For `bash`, you can add it to your `.bashrc` file. Don't forget to reload your shell configuration after adding those changes. You can use command:
+```sh
+$ source ~/.bashrc. 
+```
 
 Alternatively, you can also add an alias to your shell configuration file so you can use `mx` from anywhere:
 ```sh
