@@ -3,22 +3,40 @@
 
 Here you will find information about tools needed to build native-image tool which can compiler Java programs into native executables. Also you will learn how to install and use those tools, how to build executables for Java programs. Important thing is to learn how to debug some specific piece of code, which will also be presented in this document. There are two types of code in GraalVM project, hosted and non-hosted. You will learn the difference here.
 
-**GraalVM** is virtual machine which can run different languages. First idea was to make Java faster, but soon it became much more. One runtime for all languages. More about GraalVM you can find at the following link: https://www.graalvm.org/docs/introduction/.
+**GraalVM** is virtual machine which can run different languages. First idea was to make Java faster, but soon it became much more. One runtime for all languages. You can read more about GraalVM [here](https://www.graalvm.org/docs/introduction/).
+
+## Prerequisites
+
+It is recommended to use a Linux-based operating system. This guide assumes you are running Ubuntu, however the Ubuntu-specific commands such as package installations can be translated to an arbitrary distribution.
+
+In order to successfully build and run Graal projects, one needs to have the following dependencies satisfied:
+- `git` 
+- `build-essential`
+- Python 2.7, required in order to run our build tool
+- [`zlib`](https://www.zlib.net/), for Ubuntu the package is named `zlib1g` 
 
 ## Installation
 
 ### Clone graal project
-First clone graal project from https://github.com/oracle/graal.
-This is directory which contains all files and directories nedeed for GraalVM.
+First, clone the entire graal repository:
+```sh
+git clone https://github.com/oracle/graal
+```
 
-To build graal and native-image tool (which is used to build executable files written in Java and other languages) you will need ```mx``` tool.
+This is directory which contains all files and directories needed for GraalVM. In order to successfully build Graal, you will need a command-line tool called `mx`.
 
 ### mx
 
-You need to clone mx tool from https://github.com/graalvm/mx. 
-When you clone project, inside mx folder you will find  executable file named mx. That is pre-built mx tool which can be used for building graal project, native images, and far more.
+`mx` is a command line based tool for managing the development of (primarily) Java code. It includes a mechanism for specifying the dependencies as well as making it simple to build, test, run, update, etc the code and built artifacts. `mx` contains support for developing code spread across multiple source repositories. `mx` is written in Python and is easily extendable.
 
-You can add alias to your .bashrc file so you can use command ```mx``` from anywhere. 
+First, clone the `mx` repository:
+```sh
+git clone https://github.com/graalvm/mx/
+```
+
+`mx` can be run directly (i.e., `python mx/mx.py ...`), but is more commonly invoked via the `mx/mx` bash script. Adding the `mx/` directory to your `PATH` simplifies executing `mx`.
+
+For `bash`, you can add alias to your .bashrc file so you can use command ```mx``` from anywhere. 
 Path to .bashrc file is ~/.bashrc or /home/user/.bashrc. You open that file and in the bottom you add alias like this: 
 ```
 alias mx=PATH_TO_MX_EXECUTABLE 
