@@ -6,6 +6,7 @@ exportuje u terminalu
 
 Don't forget to reload your shell configuration after adding those changes.
 Na prvom mestu gde se nesto exportuje dodati da se reload konfiguracije moze uraditi komandom source iz terminala (bilo je to vec pisalo u tekstu) ili ako necete tu komandu da pominjete, onda link gde se vidi kako se radi reload.  
+-----> Urađeno.
 
 16) IMPORTANT: You have to set breakpoint inside IDE, use native-image 
 command with mentioned option, and then run debug mode inside IDE to debug hosted code.
@@ -26,11 +27,10 @@ More about IdealGraphVisualizer you can find at https://docs.oracle.com/en/graal
 25) GraalVM getting started --- mislim da graal ima svoj getting started i da je ovo neki nas interni getting started koji bi trebalo da se drugacije zove. Na primer, getting started for phd students ili tako nesto?
 -----> Znaci uzvika su u nekoj verziji bili upravo zbog toga sto smo i mi razmisljali o najboljem resenju za naslov. Slažem se da bi bilo bolje preimenovati, ali nisam sigurna šta bi bilo najbolje rešenje za to. Što se mene tiče, skroz je u redu i Vaš predlog. (Nevena)
 Nemojte samo da ostane ovako kako jeste. Ako ne smislite nista bolje, onda stavite samo Getting started (for phd students) pa cemo diskutovati kasnije jos na tu temu.
+-----> Izmenjen naslov.
 
 26) Prvi pasus razbijte u listu stavki koje ce biti obradjene kako bi se ujednacio stil i kako bi se poboljsala citljivost tog pasusa.
-
+-----> Urađeno. Da li mislite da je deo -the difference between hosted and non-hosted types of code in GraalVM project- suvisan?
 
 27) TODO deo https://github.com/Nevena1997/GraalVM/blob/main/README.md#native-image-build-phases-short 
 Da li je neko od vas mozda pronasao neku dokumentaciju na ovu temu? Nedostaje opis svake od faza build-ovanja.
-
-
