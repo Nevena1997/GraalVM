@@ -84,3 +84,7 @@ TODO plugins etc --- za ovo treba samo postaviti link, znam da sam negde to u ok
 
 24)
 Nisam sigurna da je potrebno kopirati onilki tekst sa graal strane, svaki copy-paste je u sustini los. Bolje je da se samo stave ti linkovi bez komiranog teksta ili da se kaze na kom linku moze da se pogelda struktura direktorijuma...
+
+
+25) GraalVM getting started --- mislim da graal ima svoj getting started i da je ovo neki nas interni getting started koji bi trebalo da se drugacije zove. Na primer, getting started for phd students ili tako nesto?
+
