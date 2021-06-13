@@ -18,22 +18,8 @@ In order to successfully build and run Graal projects, one needs to have the fol
 ### Setting up IntelliJ IDEA
 
 Download and install the latest [IntelliJ IDEA Community Edition]( https://www.jetbrains.com/idea/download/).
-Change the IntelliJ maximum memory to 2 GB or more. As per the [instructions](https://www.jetbrains.com/idea/help/increasing-memory-heap.html#d1366197e127), from the main menu choose **Help | Edit Custom VM Options** and modify the **-Xmx** and **-Xms** options.
 
-Enable parallel builds in **Preferences > Build, Execution, Deployment > Compiler > Compile independent modules in parallel**.
-
-Open IntelliJ and go to **Preferences > Plugins > Browse Repositories**. Install the following plugins:
-
-* [Eclipse Code Formatter](https://plugins.jetbrains.com/plugin/6546): formats code according to Eclipse
-* [Checkstyle-IDEA](https://plugins.jetbrains.com/plugin/1065): runs style checks as you develop
-* [Save Actions](https://plugins.jetbrains.com/plugin/7642): allows code reformatting on save similar to Eclipse
-* [FindBugs-IDEA](https://plugins.jetbrains.com/plugin/3847): looks for suspicious code
-* [Python Plugin](https://plugins.jetbrains.com/idea/plugin/631-python): python plugin
-* [Markdown Navigator](https://plugins.jetbrains.com/plugin/7896-markdown-navigator): markdown plugin
-
-Check that the bundled Ant plugin is enabled in **Preferences > Plugins > Installed** (you may get `Unknown artifact properties: ant-postprocessing.` errors in your project artifacts otherwise).
-
-You can read more setting up IntelliJ IDEA [here](https://github.com/graalvm/mx/blob/master/docs/IDE.md).
+You can read more about setting up IntelliJ IDEA for GraalVM project [here](https://github.com/graalvm/mx/blob/master/docs/IDE.md).
 
 ## Installation
 
@@ -288,6 +274,7 @@ To build an executable and see it's internal representation type the following:
 $ native-image HelloWorld -H:Dump=:3 -H:MethodFilter=HelloWorld.main -H:Optimize=0 -H:PrintGraph=Network
 ```
 
-## More
+## More about GraalVM and GitHub
 You can read more about GraalVM community contributors [here](https://www.graalvm.org/community/contributors/).
-You can read more about GitHub[here](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests).
+
+You can read more about GitHub [here](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests).
