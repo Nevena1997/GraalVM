@@ -1,13 +1,14 @@
-# GraalVM getting started (for phd students)
-
-Here you will find information about:
- -  tools needed to build `native-image` tool which can compile Java programs into native executables;
- -  how to install and use those tools;
- -  how to build executables for Java programs;
- -  how to debug some specific piece of code;
- -  the difference between hosted and non-hosted types of code in GraalVM project.
+# Getting started (for phd students)
 
 **GraalVM** is a virtual machine which can run different languages. First idea was to make Java faster, but soon it became much more. One runtime for all languages. You can read more about GraalVM [here](https://www.graalvm.org/docs/introduction/).
+
+In this document, you will find information about:
+ -  Tools needed to build `native-image` tool which can compile Java programs into native executables
+ -  How to install and use these tools
+ -  How to build executables for Java programs
+ -  How to debug some specific piece of code
+ -  The difference between hosted and non-hosted types of code.
+
 
 ## Prerequisites
 
@@ -120,7 +121,7 @@ You can specify a list of components to include via `--dynamicimports` (`--dy` f
 ```sh
 $ mx --dynamicimports /substratevm,/sulong,/truffle build
 ```
-Note that we are referencing the components relatively to the root of the Graal repository. 
+Note that you are referencing the components relatively to the root of the Graal repository.
 
 ### Specifying components to build via environment variables
 
@@ -154,7 +155,7 @@ $ mx --env ni-ce build
 
 Invoking `mx build` from `/substratevm` directory builds `substratevm` project. After the build is completed, you can find `native-image` executable inside `latest_graalvm_home/bin` directory. You can also add this directory to your `PATH` in order to invoke `native-image` from anywhere on the system. Invoking `java` or `javac` will then invoke GraalVM `latest_graalvm_home/bin/java` or `latest_graalvm_home/bin/javac`. You can also use `mx graalvm-home` to find the path to the `latest_graalvm_home` directory, which you can then use in your shell configuration files.
 
-Now you can test the `native-image` tool that we just built.
+Now you can test the `native-image` tool that you have just built.
 
 
 ## Creating a native image
@@ -201,18 +202,20 @@ sys	0m0.008s
 
 ## Native image build phases (short):
 
-// TODO 
+// TODO
 
-- **Analysis**: going through all Java functions nedeed in program. You cannot take whole Java standard library and put it into executable, so this phase finds out all important and used functions and takes them, compiles them and make binaries from them which are part of created executable.
+- **Analysis**: going through all Java functions needed in program. You cannot take whole Java standard library and put it into executable, so this phase finds out all important and used functions and takes them, compiles them and make binaries from them which are part of created executable.
+
+## Hosted and non-hosted code
 
 You can distinct **hosted** and **non-hosted** code. Hosted code is Java code that executes during building of native image of the program. On the other hand non-hosted code is part of code that runs during program execution. There is some code that executes only during build, and some code is used only in execution. To distinct those codes, annotations are used. Some classes are partially hosted, partially non-hosted, so annotations help to distinct those types of codes.
 
 
 ## Debugging
-Debugging hosted and non-hosted code is different. To debug hosted code you can use IDE debugger and if you want to debug non-hosted code, you have to use debugger that can debug executables (gdb for example).
+Debugging hosted and non-hosted code is different. To debug hosted code you can use IntelliJ IDEA debugger for Java code. If you want to debug non-hosted code, you have to use debugger that can debug executables (gdb for example).
 
 ### Debugging non-hosted code
-If you want to debug non-hosted code, you should use gdb, or any other debugger thath can debug binary code (executables). To build  image with debug symbols add flag `-g` to native-image compilation process. 
+If you want to debug non-hosted code, you should use gdb, or any other debugger that can debug binary code (executables). To build  image with debug symbols add flag `-g` to native-image compilation process.
 ```sh
 $ native-image HelloWorld -g
 ```
@@ -237,7 +240,7 @@ You can add a breakpoint in `gdb` using `b` option:
 ```
 b ClassName::functionName
 ```
-For example: 
+For example:
 ```
 (gdb) b HelloWorld::main
 ```
@@ -261,13 +264,13 @@ To see memory registers type `layout reg`:
 
 Command `next` gdb looks one line as an instruction and executes it as one instruction. Similar as `step over` command in IntelliJ.
 
-Command `step` executes line but if the instruction represents call of a function, `step` will go into function body and will execute function instructions one by one. Similiar to `step into` command in IntelliJ. 
+Command `step` executes line but if the instruction represents call of a function, `step` will go into function body and will execute function instructions one by one. Similar to `step into` command in IntelliJ.
 
 Command `bt` gives us backtrace of current stack.
 
 ### Debugging hosted code
 
-If you want to debug hosted code, you can use standard debugger from IDE. During build of image using `native-image` tool, you have to specify that we want debugging of hosted code using `--debug-attach`.
+If you want to debug hosted code, you can use IntelliJ IDEA debugger for Java code. During build of image using `native-image` tool, you have to specify that you want debugging of hosted code using `--debug-attach`.
 ```sh
 $ native-image --debug-attach HelloWorld
 ```
@@ -275,7 +278,7 @@ $ native-image --debug-attach HelloWorld
 
 ## Visualization
 
-To see how to get native code from Java code you can see internal Graal representation using [IdealGraphVisualizer](https://www.oracle.com/downloads/graalvm-downloads.html). Just unzip archive, position to directory where you unzipped it, go to `bin` directory and then run `idealgraphvisualizer`:
+To understand better the process of getting native code from Java code, you can visualize internal Graal representation using [IdealGraphVisualizer](https://www.oracle.com/downloads/graalvm-downloads.html). Just unzip archive, position to the directory where you unzipped it, go to `bin` directory and then run `idealgraphvisualizer`:
 ```sh
 $ ./idealgraphvisualizer
 ```
@@ -283,8 +286,8 @@ To build an executable and see it's internal representation type the following:
 ```sh
 $ native-image HelloWorld -H:Dump=:3 -H:MethodFilter=HelloWorld.main -H:Optimize=0 -H:PrintGraph=Network
 ```
+You can find more about IdealGraphVisualizer [here](https://docs.oracle.com/en/graalvm/enterprise/19/guide/tools/ideal-graph-visualizer.html).
 
-More about IdealGraphVisualizer you can find at [here](https://docs.oracle.com/en/graalvm/enterprise/19/guide/tools/ideal-graph-visualizer.html).
 
 ## How to contribute to GraalVM?
 
