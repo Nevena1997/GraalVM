@@ -1,9 +1,9 @@
 # Getting started (for phd students)
 
-**GraalVM** is a virtual machine which can run different languages. First idea was to make Java faster, but soon it became much more. One runtime for all languages. You can read more about GraalVM [here](https://www.graalvm.org/docs/introduction/).
+**GraalVM** is a virtual machine which can run different languages. First idea was to make Java faster, but soon it became much more: one runtime for many languages. You can read more about GraalVM [here](https://www.graalvm.org/docs/introduction/).
 
 In this document, you will find information about:
- -  Tools needed to build `native-image` tool which can compile Java programs into native executables
+ -  Tools needed to build `native-image`, a tool which can compile Java programs into native executables
  -  How to install and use these tools
  -  How to build executables for Java programs
  -  How to debug some specific piece of code
@@ -19,9 +19,11 @@ In order to successfully build and run Graal projects, one needs to have the fol
 - `build-essential`
 - Python 2.7, required in order to run our build tool
 - [`zlib`](https://www.zlib.net/), for Ubuntu the package is named `zlib1g` 
-- an IDE for Java development
+
 
 ### Setting up IntelliJ IDEA
+
+IntelliJ IDEA is a commonly used IDE for developing GraalVM.
 
 Download and install the latest [IntelliJ IDEA Community Edition]( https://www.jetbrains.com/idea/download/).
 
@@ -51,12 +53,12 @@ images or shared objects.
 * [VM](https://github.com/oracle/graal/blob/master/vm/README.md) includes the components to build a modular GraalVM image.
 * [VS Code](https://github.com/oracle/graal/blob/master/vscode/README.md) provides extensions to Visual Studio Code that support development of polyglot applications using GraalVM.
 
-In order to successfully build Graal, you will need a command-line tool called `mx`.
+In order to successfully build Graal, you need a command-line tool called `mx`.
 
 
 ### Clone mx repository
 
-`mx` is a command line based tool for managing the development of (primarily) Java code. It includes a mechanism for specifying the dependencies as well as making it simple to build, test, run, update, etc the code and built artifacts. `mx` contains support for developing code spread across multiple source repositories. `mx` is written in Python and is easily extendable.
+`mx` is a command line based tool for managing the development of (primarily) Java code. It includes a mechanism for specifying the dependencies as well as making it simple to build, test, run, update, etc. the code and built artifacts. `mx` contains support for developing code spread across multiple source repositories. `mx` is written in Python and is easily extendable.
 
 First, clone the `mx` repository:
 ```sh
@@ -111,7 +113,7 @@ The definition of a suite and its components is located in a file named `suite.p
 
 Relevant commands for build process:
 - `mx build` command builds one suite (if you want to build a specific Graal subproject like Truffle, Sulong, compiler etc, you should go to the specific directory and then invoke `mx build` from there)
-- `mx graalvm-home` shows the path to the latest build output directory, which is located in `sdk/` directory - you should have 2 symbolic links pointing to `latest_graalvm` and `latest_graalvm_home`. `latest_graalvm_home` points to the latest build output.
+- `mx graalvm-home` shows the path to the latest build output directory, which is located in `sdk/` directory - you should have two symbolic links pointing to `latest_graalvm` and `latest_graalvm_home`. `latest_graalvm_home` points to the latest build output.
 
 The `/vm` suite allows you to build custom GraalVM distributions by specifying which components you wish to include. This can be done via command-line arguments, environment variables or files.
 
@@ -173,7 +175,7 @@ public class HelloWorld {
 
 You can start by compiling the source:
 ```sh
-$ java HelloWorld.java
+$ javac HelloWorld.java
 ```
 
 You can verify that the compilation was successful by running the compiled class:
@@ -289,11 +291,21 @@ If you want to debug hosted code, you can use IntelliJ IDEA debugger for Java co
 ```sh
 $ native-image --debug-attach HelloWorld
 ```
-By default native-image tool is listening for transport on port 8000 on localhost. To be able to debug hosted code using IntelliJ, you have to enable remote debugging inside IDE. This can be done manually or by using command `mx intellijinit`. If you want to do this manually, you can find more information at the following link: https://www.jetbrains.com/help/idea/tutorial-remote-debug.html#99f9e7ee.
+By default native-image tool is listening for transport on port 8000 on localhost. If you want to change the port, you can do that by specifying the port in the following way (for example, port 8080)
+```sh
+$ native-image --debug-attach:8080 HelloWorld
+```
+You will get the message
+```sh
+Listening for transport dt_socket at address: 8080
+```
+To debug hosted code using IntelliJ, go to `Run` and choose `Attach to Process`. You will be offered to choose the process and a corresponding host port.
+
+To be able to debug hosted code using IntelliJ, you have to enable remote debugging inside IDE. This can be done manually or by using command `mx intellijinit`. If you want to do this manually, you can find more information at the following [link](https://www.jetbrains.com/help/idea/tutorial-remote-debug.html#99f9e7ee).
 
 ## Visualization
 
-To understand better the process of getting native code from Java code, you can visualize internal Graal representation using [IdealGraphVisualizer](https://www.oracle.com/downloads/graalvm-downloads.html). Just unzip archive, position to the directory where you unzipped it, go to `bin` directory and then run `idealgraphvisualizer`:
+To understand better the process of getting native code from Java code, you can visualize internal Graal representation using [IdealGraphVisualizer](https://www.oracle.com/downloads/graalvm-downloads.html). First unzip the archive, then position to the directory where you unzipped it, go to `bin` directory and then run `idealgraphvisualizer`:
 ```sh
 $ ./idealgraphvisualizer
 ```
@@ -306,5 +318,5 @@ You can find more about IdealGraphVisualizer [here](https://docs.oracle.com/en/g
 
 ## How to contribute to GraalVM?
 
-When you solve some issue or make a contribution that you want to share, you should find the appropriate way to contribute to GraalVM. Read about common ways to collaborate on GraalVM [here](https://www.graalvm.org/community/contributors/). If you choose to propose changes with pull requests, learn more about the GitHub pull requests [here](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests).
+When you solve some issue or make a contribution that you want to share, you should find the appropriate way to contribute to GraalVM. Read about common ways to collaborate on GraalVM [here](https://www.graalvm.org/community/contributors/). If you want to propose changes with pull requests, learn more about the GitHub pull requests [here](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests).
 
