@@ -69,6 +69,7 @@ https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-cha
 -----> Ispravljeno. To je bila radna verzija.
 
 20) Eksportovanje u terminalu i upisivanje u bashrc fajl su razlicite stvari ne smeta da ostane i jedno i drugo u uputstvu, tako da bih ja vratila komentar na tu temu, tj posebno upotrebu komande source kako se ne bi terminal ukljucivao/iskljucivao bez potrebe.  
+-----> Nisam sigurna da li je ovaj komentar bio pre ili posle formatiranja i da li je sada sve u redu.
 
 21) All directories that includes
  All directories that include
@@ -84,7 +85,8 @@ TODO plugins etc --- za ovo treba samo postaviti link, znam da sam negde to u ok
 
 24)
 Nisam sigurna da je potrebno kopirati onilki tekst sa graal strane, svaki copy-paste je u sustini los. Bolje je da se samo stave ti linkovi bez komiranog teksta ili da se kaze na kom linku moze da se pogelda struktura direktorijuma...
-
+-----> Ivanova i moja ideja je bila da na neki način prikupimo sva objašnjenja iz različitih dokumenata i stavimo ih na jedno mesto, tj. u ovaj fajl. Zbog toga mislim da ti kopirani delovi nisu loši jer daju osnovne informacije potrebne za razumevanje. Mislim da smo dodali i linkove ka tim opštijim dokumentima, ali ukoliko primetite da nam je promaklo nešto, dodaćemo.
 
 25) GraalVM getting started --- mislim da graal ima svoj getting started i da je ovo neki nas interni getting started koji bi trebalo da se drugacije zove. Na primer, getting started for phd students ili tako nesto?
+-----> Znaci uzvika su u nekoj verziji bili upravo zbog toga sto smo i mi razmisljali o najboljem resenju za naslov. Slažem se da bi bilo bolje preimenovati, ali nisam sigurna šta bi bilo najbolje rešenje za to. Što se mene tiče, skroz je u redu i Vaš predlog. (Nevena)
 
