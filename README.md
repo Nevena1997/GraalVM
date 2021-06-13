@@ -188,7 +188,22 @@ sys	0m0.039s
 Now you can make a native image (we will explain these phases in the following sections):
 ```sh
 $ native-image HelloWorld
-// TODO add output
+[helloworld:6530]    classlist:  10,554.19 ms,  1.18 GB
+[helloworld:6530]        (cap):     483.33 ms,  1.18 GB
+[helloworld:6530]        setup:   3,861.20 ms,  1.18 GB
+[helloworld:6530]     (clinit):     210.05 ms,  2.30 GB
+[helloworld:6530]   (typeflow):   7,437.99 ms,  2.30 GB
+[helloworld:6530]    (objects):   6,442.54 ms,  2.30 GB
+[helloworld:6530]   (features):   5,034.89 ms,  2.30 GB
+[helloworld:6530]     analysis:  19,454.27 ms,  2.30 GB
+[helloworld:6530]     universe:     854.96 ms,  2.30 GB
+[helloworld:6530]      (parse):   1,441.33 ms,  2.30 GB
+[helloworld:6530]     (inline):   2,931.44 ms,  2.33 GB
+[helloworld:6530]    (compile):  15,920.09 ms,  2.87 GB
+[helloworld:6530]      compile:  21,238.28 ms,  2.87 GB
+[helloworld:6530]        image:   3,215.30 ms,  2.87 GB
+[helloworld:6530]        write:   2,310.63 ms,  2.87 GB
+[helloworld:6530]      [total]:  61,977.20 ms,  2.87 GB
 ```
 
 This creates an executable named `helloworld` which does not require a JVM to be run, which significantly reduces execution time, which you can simply verify:
@@ -274,7 +289,7 @@ If you want to debug hosted code, you can use IntelliJ IDEA debugger for Java co
 ```sh
 $ native-image --debug-attach HelloWorld
 ```
-*Note: You have to set breakpoint inside IDE, use `native-image` command with mentioned option, and then run debug mode inside IDE to debug hosted code.*
+By default native-image tool is listening for transport on port 8000 on localhost. To be able to debug hosted code using IntelliJ, you have to enable remote debugging inside IDE. This can be done manually or by using command `mx intellijinit`. If you want to do this manually, you can find more information at the following link: https://www.jetbrains.com/help/idea/tutorial-remote-debug.html#99f9e7ee.
 
 ## Visualization
 

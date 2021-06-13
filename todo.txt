@@ -1,10 +1,13 @@
-
 16) IMPORTANT: You have to set breakpoint inside IDE, use native-image 
 command with mentioned option, and then run debug mode inside IDE to debug hosted code.
 
 Ovo nije jasno napisano, treba preciznije. Koliko se secam, negde portovi 
 komunikacije treba da se preciziraju. Ko nije radio debagovanje na ovaj 
 nacin, to mora prvi put da mu se kaze eksplicitno.
+
+------> Proveriti da li je ovo sada u redu. Takodje je moguce prilikom buildovanja native-image alata podesiti port, medjutim ja to
+nisam uspeo. Ako se kuca mx --help pronalaze se 2 komande --dbg i --attach. Medjutim i jedna i druga meni ostavljaju defaultni 8000 port.
+Ako neko uspe da ovo sredi neka doda u .md.
 
 27) TODO deo https://github.com/Nevena1997/GraalVM/blob/main/README.md#native-image-build-phases-short 
 Da li je neko od vas mozda pronasao neku dokumentaciju na ovu temu? Nedostaje opis svake od faza build-ovanja.
