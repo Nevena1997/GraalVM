@@ -90,3 +90,5 @@ Nisam sigurna da je potrebno kopirati onilki tekst sa graal strane, svaki copy-p
 25) GraalVM getting started --- mislim da graal ima svoj getting started i da je ovo neki nas interni getting started koji bi trebalo da se drugacije zove. Na primer, getting started for phd students ili tako nesto?
 -----> Znaci uzvika su u nekoj verziji bili upravo zbog toga sto smo i mi razmisljali o najboljem resenju za naslov. Slažem se da bi bilo bolje preimenovati, ali nisam sigurna šta bi bilo najbolje rešenje za to. Što se mene tiče, skroz je u redu i Vaš predlog. (Nevena)
 
+26) TODO deo https://github.com/Nevena1997/GraalVM/blob/main/README.md#native-image-build-phases-short 
+Da li je neko od vas mozda pronasao neku dokumentaciju na ovu temu? Nedostaje opis svake od faza build-ovanja.
