@@ -14,16 +14,6 @@ Ovo nije jasno napisano, treba preciznije. Koliko se secam, negde portovi
 komunikacije treba da se preciziraju. Ko nije radio debagovanje na ovaj 
 nacin, to mora prvi put da mu se kaze eksplicitno.
 
-17) To see how to get native code from Java code you can see internal 
-Graal representation using IdealGraphVisualizer.
-
-Ovo je sada nova tema kojoj nedostaje novi naslov. Takodje, sama recenica 
-mi deluje da ne oslikava bas najbolje cemu sluzi vizuelizator, pa bi 
-bilo dobro to precizirati i dodati jos nesto na tu temu.
-
------> Ispravljeno. Obrisano je sve jer mi se cini da je tema preobimna i da zahteva dosta predznanja koje mi jos uvek nemamo.
------> Komentar 22. 
-
 18) Kao sto smo vec raspravili, treba dodati reci o tome kako projekat 
 funkcionise, odnosno da se koristi git/github, da se izmene realizuju 
 kroz pr-ove. Dodati da vise o tome se moze procitati ovde
@@ -46,16 +36,9 @@ More about IdealGraphVisualizer you can find at https://docs.oracle.com/en/graal
 -----> Kao za komentar 17. Ukoliko zelimo da obradimo i ovu temu, mislim da je potrebno dati neka uputstva cemu to sluzi, kako funkcionise, definisati neke stvari. Nisam sigurna da sam sve to dobro razumela da bih se upustala u odetaljnu obradu. 
 -----> Vraćen je naslov. Eventualno dodatno pitati Ivana i Milana za pomoć sa ovom sekcijom.
 
-24)
-Nisam sigurna da je potrebno kopirati onilki tekst sa graal strane, svaki copy-paste je u sustini los. Bolje je da se samo stave ti linkovi bez komiranog teksta ili da se kaze na kom linku moze da se pogelda struktura direktorijuma...
-
------> Ivanova i moja ideja je bila da na neki način prikupimo sva objašnjenja iz različitih dokumenata i stavimo ih na jedno mesto, tj. u ovaj fajl. Zbog toga mislim da ti kopirani delovi nisu loši jer daju osnovne informacije potrebne za razumevanje. Mislim da smo dodali i linkove ka tim opštijim dokumentima, ali ukoliko primetite da nam je promaklo nešto, dodaćemo.
-
-Ok, ako tako zelite, neka ostane.
-
-
 25) GraalVM getting started --- mislim da graal ima svoj getting started i da je ovo neki nas interni getting started koji bi trebalo da se drugacije zove. Na primer, getting started for phd students ili tako nesto?
 -----> Znaci uzvika su u nekoj verziji bili upravo zbog toga sto smo i mi razmisljali o najboljem resenju za naslov. Slažem se da bi bilo bolje preimenovati, ali nisam sigurna šta bi bilo najbolje rešenje za to. Što se mene tiče, skroz je u redu i Vaš predlog. (Nevena)
+Nemojte samo da ostane ovako kako jeste. Ako ne smislite nista bolje, onda stavite samo Getting started (for phd students) pa cemo diskutovati kasnije jos na tu temu.
 
 26) Prvi pasus razbijte u listu stavki koje ce biti obradjene kako bi se ujednacio stil i kako bi se poboljsala citljivost tog pasusa.
 
