@@ -56,6 +56,7 @@ Ovo je sada nova tema kojoj nedostaje novi naslov. Takodje, sama recenica
 mi deluje da ne oslikava bas najbolje cemu sluzi vizuelizator, pa bi 
 bilo dobro to precizirati i dodati jos nesto na tu temu.
 -----> Ispravljeno. Obrisano je sve jer mi se cini da je tema preobimna i da zahteva dosta predznanja koje mi jos uvek nemamo.
+-----> Komentar 22. 
 
 18) Kao sto smo vec raspravili, treba dodati reci o tome kako projekat 
 funkcionise, odnosno da se koristi git/github, da se izmene realizuju 
@@ -78,6 +79,7 @@ https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-cha
 22) Zasto je ovaj link obrisan, ta tema je veoma vazna:
 More about IdealGraphVisualizer you can find at https://docs.oracle.com/en/graalvm/enterprise/19/guide/tools/ideal-graph-visualizer.html
 -----> Kao za komentar 17. Ukoliko zelimo da obradimo i ovu temu, mislim da je potrebno dati neka uputstva cemu to sluzi, kako funkcionise, definisati neke stvari. Nisam sigurna da sam sve to dobro razumela da bih se upustala u odetaljnu obradu. 
+-----> Vraćen je naslov. Eventualno dodatno pitati Ivana i Milana za pomoć sa ovom sekcijom.
 
 23)
 TODO plugins etc --- za ovo treba samo postaviti link, znam da sam negde to u okviru graal projekta videla da postoji, dakle samo link na taj dokument 
