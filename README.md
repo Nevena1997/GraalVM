@@ -278,7 +278,7 @@ $ native-image HelloWorld -H:Dump=:3 -H:MethodFilter=HelloWorld.main -H:Optimize
 
 More about IdealGraphVisualizer you can find at [here](https://docs.oracle.com/en/graalvm/enterprise/19/guide/tools/ideal-graph-visualizer.html).
 
-## More about GraalVM contributions
-You can read more about GraalVM community contributors [here](https://www.graalvm.org/community/contributors/).
+## How to contribute to GraalVM?
 
-You can read more about GitHub [here](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests).
+When you solve some issue or make a contribution that you want to share, you should find the appropriate way to contribute to GraalVM. Read about common ways to collaborate on GraalVM [here](https://www.graalvm.org/community/contributors/). If you choose to propose changes with pull requests, learn more about the GitHub pull requests [here](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests).
+
