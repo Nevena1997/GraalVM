@@ -1,28 +1,3 @@
-1) Za pocetak mora da se kaze cemu ovaj fajl sluzi. Pogledajte na primer ovaj dokument:
-https://www.graalvm.org/docs/getting-started/#get-started-with-graalvm
-
-Tu pise sledece:
-Here you will find information about installing GraalVM Community Edition, running 
-basic applications with it, and adding support for accompanying features. Further, 
-you will learn about the polyglot capabilities of GraalVM and see how to build 
-platform-specific native executables of JVM-based applications.
-
-Dakle, na isti nacin potrebno je da pocnemo i ovaj dokument, tj sta u njemu moze 
-da se procita i nauci.
-
-2) Na pocetku su nabrojani neki projekti ali ne svi. Takodje, za to sto je 
-nabrojano nisu dati linkovi. Mislim da je vrlo nezahvalno upetljavati se u 
-opis Graala, a da za time nema ni potrebe jer su drugi to vec uradili kako 
-treba. Dakle, ovde mislim da bi imalo smisla reci samo sta je graal, u 
-recenici ili dve, i onda uputiti citaoca na ovaj link
-https://www.graalvm.org/docs/introduction/
-Tu mogu da se izdvoje, ako to zelite, neki podprojekti, ali iskljucivo kratko 
-opisani i sa datim linkovima na te podprojekte, i uz napomenu da je to samo 
-par podprojekata, da to nije sve. 
- 
-3) Ovaj komentar 
-HOSTED vs NON-HOSTED code explanation in 57th minute of the video.
-nema mnogo smisla i ne treba tu da se nalazi. Samo zbunjuje.
 
 3) To build graal and native-images (executable files written in 
 Java and other languages) you will need mx tool.
@@ -36,17 +11,6 @@ Building native images:
 ne odgovara sadrzaju teksta. Ovde se prica o tome kako se bilduje projekat, 
 a ne nativna slika za neki konkretni java program. 
 
-5) (suites I think, or something like that ?????)
-Ovakve stvari ili saznajte ili sklonite, ne moze tako da ostane. 
-
-6) has dependencies on other subprojects
---->
-have dependencies on other subprojects
-
-7)  we can do that in 2 ways:
--->
- we can do that in two ways:
-
 8) Ovaj pasus
 
 IMPORTANT: In terminal in which you want to build graal, JAVA_HOME should 
@@ -59,29 +23,12 @@ JAVA_HOME should be set to this JDK.
 
 Tako da imamo i ponavljanje, pri cemu onaj prvi put, posto pojmovi nisu bili uvedeni, deluje mi da samo zbunjuje.
 
-9) You can do this in 2 ways:
--->
-You can do this in two ways
-
-10) There you can see different executables including java and java
-?java and java?
-
 11) export PATH=PATH_TO_LATEST_GRAALVM_HOME_DIRECTORY/bin
 I ovde treba pomenuti da to treba da se doda u bashrc, ne samo da se 
 exportuje u terminalu
 
 12) Naslov faze bildovanja ne odgovara posle tekstu koji ide. 
 Debagovanje je debagovanje, nema veze sa fazama bildovanja.
-
-13) GDB Layouts: 
-Prelomiti naredne recenice tako da budu u zasebnim redovima radi citljivosti
-Takodje, komande u narednom tekstu prelomiti da budu citljive, 
-Command in gdb ...
-Dakle da bude svaka u narednom redu ili u listi nabrajanja 
-ili kako god, ali ovako je bas nepregledno
-
-14) Deo vezan za debagovanje treba da ima svoj naslov, a onda da se gdb i debagovanje 
-kroz ide razdvoje u dva podnaslova
 
 15) Nedostaje pre ovoga da se doda naslov vezan za IDE u okviru kojeg ce biti 
 receno da se za razvoj koristi intellij community varijanta i da se stavi link na 
