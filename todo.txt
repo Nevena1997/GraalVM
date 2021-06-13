@@ -9,3 +9,7 @@ nacin, to mora prvi put da mu se kaze eksplicitno.
 27) TODO deo https://github.com/Nevena1997/GraalVM/blob/main/README.md#native-image-build-phases-short 
 Da li je neko od vas mozda pronasao neku dokumentaciju na ovu temu? Nedostaje opis svake od faza build-ovanja.
 
+28) $ native-image HelloWorld
+// TODO add output
+
+Ovo dodati
