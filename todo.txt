@@ -10,6 +10,7 @@ Dakle, ovo treba preformulisati.
 Building native images:
 ne odgovara sadrzaju teksta. Ovde se prica o tome kako se bilduje projekat, 
 a ne nativna slika za neki konkretni java program. 
+-----> Ispravljeno
 
 8) Ovaj pasus
 
@@ -22,19 +23,23 @@ JDK with JVMCI - so-called labs JDK - https://github.com/graalvm/labs-openjdk-11
 JAVA_HOME should be set to this JDK. 
 
 Tako da imamo i ponavljanje, pri cemu onaj prvi put, posto pojmovi nisu bili uvedeni, deluje mi da samo zbunjuje.
+-----> Ispravljeno
 
 11) export PATH=PATH_TO_LATEST_GRAALVM_HOME_DIRECTORY/bin
 I ovde treba pomenuti da to treba da se doda u bashrc, ne samo da se 
 exportuje u terminalu
+-----> Ispravljeno
 
 12) Naslov faze bildovanja ne odgovara posle tekstu koji ide. 
 Debagovanje je debagovanje, nema veze sa fazama bildovanja.
+-----> Ispravljeno
 
 15) Nedostaje pre ovoga da se doda naslov vezan za IDE u okviru kojeg ce biti 
 receno da se za razvoj koristi intellij community varijanta i da se stavi link na 
 https://www.jetbrains.com/idea/download/
 kao i na ovo
 https://www.jetbrains.com/help/idea/discover-intellij-idea.html
+-----> Ispravljeno
 
 16) IMPORTANT: You have to set breakpoint inside IDE, use native-image 
 command with mentioned option, and then run debug mode inside IDE to debug hosted code.
@@ -49,6 +54,7 @@ Graal representation using IdealGraphVisualizer.
 Ovo je sada nova tema kojoj nedostaje novi naslov. Takodje, sama recenica 
 mi deluje da ne oslikava bas najbolje cemu sluzi vizuelizator, pa bi 
 bilo dobro to precizirati i dodati jos nesto na tu temu.
+-----> Ispravljeno. Obrisano je sve jer mi se cini da je tema preobimna i da zahteva dosta predznanja koje mi jos uvek nemamo.
 
 18) Kao sto smo vec raspravili, treba dodati reci o tome kako projekat 
 funkcionise, odnosno da se koristi git/github, da se izmene realizuju 
@@ -56,20 +62,24 @@ kroz pr-ove. Dodati da vise o tome se moze procitati ovde
 https://www.graalvm.org/community/contributors/
 a vise o radu na github-u sa pr-ovima se moze pogledati npr ovde
 https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests
-
+-----> Ispravljeno. Ne znam da li biste Vi jos nesto dodali u ovoj sekciji? Kako da nazovemo sekciju?
 
 19) Neobicni su znaci uzvika na kraju Getting started
+-----> Ispravljeno. To je bila radna verzija.
 
 20) Eksportovanje u terminalu i upisivanje u bashrc fajl su razlicite stvari ne smeta da ostane i jedno i drugo u uputstvu, tako da bih ja vratila komentar na tu temu, tj posebno upotrebu komande source kako se ne bi terminal ukljucivao/iskljucivao bez potrebe.  
 
 21) All directories that includes
  All directories that include
+-----> Ispravljeno.
 
 22) Zasto je ovaj link obrisan, ta tema je veoma vazna:
 More about IdealGraphVisualizer you can find at https://docs.oracle.com/en/graalvm/enterprise/19/guide/tools/ideal-graph-visualizer.html
+-----> Kao za komentar 17. Ukoliko zelimo da obradimo i ovu temu, mislim da je potrebno dati neka uputstva cemu to sluzi, kako funkcionise, definisati neke stvari. Nisam sigurna da sam sve to dobro razumela da bih se upustala u odetaljnu obradu. 
 
 23)
 TODO plugins etc --- za ovo treba samo postaviti link, znam da sam negde to u okviru graal projekta videla da postoji, dakle samo link na taj dokument 
+-----> Ispravljeno.
 
 24)
 Nisam sigurna da je potrebno kopirati onilki tekst sa graal strane, svaki copy-paste je u sustini los. Bolje je da se samo stave ti linkovi bez komiranog teksta ili da se kaze na kom linku moze da se pogelda struktura direktorijuma...
