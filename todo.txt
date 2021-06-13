@@ -1,46 +1,11 @@
 
-3) To build graal and native-images (executable files written in 
-Java and other languages) you will need mx tool.
-Alat mx treba da se izbilduje projekat i da se napravi alat koji posle pravi 
-nativne slike. tj, kada izbildujemo native-image nama uopste ne treba mx alat 
-da bi sa njime napravili executable files written in Java and other languages. 
-Dakle, ovo treba preformulisati. 
------> Ispravljeno.
-
-4) Ovaj naslov
-Building native images:
-ne odgovara sadrzaju teksta. Ovde se prica o tome kako se bilduje projekat, 
-a ne nativna slika za neki konkretni java program. 
------> Ispravljeno.
-
-8) Ovaj pasus
-
-IMPORTANT: In terminal in which you want to build graal, JAVA_HOME should 
-point to downloaded labs JDK. ...
-
-se odnosi na nesto sto ce tek dole posle da bude objasnjeno, tako da mu tu 
-nije mesto. Tj, dole pise ovo:
-JDK with JVMCI - so-called labs JDK - https://github.com/graalvm/labs-openjdk-11/releases. 
-JAVA_HOME should be set to this JDK. 
-
-Tako da imamo i ponavljanje, pri cemu onaj prvi put, posto pojmovi nisu bili uvedeni, deluje mi da samo zbunjuje.
------> Ispravljeno
-
 11) export PATH=PATH_TO_LATEST_GRAALVM_HOME_DIRECTORY/bin
 I ovde treba pomenuti da to treba da se doda u bashrc, ne samo da se 
 exportuje u terminalu
 -----> Ispravljeno
 
-12) Naslov faze bildovanja ne odgovara posle tekstu koji ide. 
-Debagovanje je debagovanje, nema veze sa fazama bildovanja.
------> Ispravljeno
-
-15) Nedostaje pre ovoga da se doda naslov vezan za IDE u okviru kojeg ce biti 
-receno da se za razvoj koristi intellij community varijanta i da se stavi link na 
-https://www.jetbrains.com/idea/download/
-kao i na ovo
-https://www.jetbrains.com/help/idea/discover-intellij-idea.html
------> Ispravljeno
+Don't forget to reload your shell configuration after adding those changes.
+Na prvom mestu gde se nesto exportuje dodati da se reload konfiguracije moze uraditi komandom source iz terminala (bilo je to vec pisalo u tekstu) ili ako necete tu komandu da pominjete, onda link gde se vidi kako se radi reload.  
 
 16) IMPORTANT: You have to set breakpoint inside IDE, use native-image 
 command with mentioned option, and then run debug mode inside IDE to debug hosted code.
@@ -65,26 +30,22 @@ a vise o radu na github-u sa pr-ovima se moze pogledati npr ovde
 https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests
 -----> Ispravljeno. Ne znam da li biste Vi jos nesto dodali u ovoj sekciji? Kako da nazovemo sekciju?
 
-19) Neobicni su znaci uzvika na kraju Getting started
------> Ispravljeno. To je bila radna verzija.
+Ovde treba da upotpunite pricu zasto je taj tekst tu ubacen. Dakle, ovako:
+When you solve some issue or make a contribution that you want to share, you should find the appropriate way to contribute to Graal. Read about common ways to collaborate on GraalVM here. If you choose to propose changes with pull requests, learn more about the GitHub pull requests here.  
+
+Naslov bi mogao da bude How to Contribute to GraalVM?
 
 20) Eksportovanje u terminalu i upisivanje u bashrc fajl su razlicite stvari ne smeta da ostane i jedno i drugo u uputstvu, tako da bih ja vratila komentar na tu temu, tj posebno upotrebu komande source kako se ne bi terminal ukljucivao/iskljucivao bez potrebe.  
-
-21) All directories that includes
- All directories that include
------> Ispravljeno.
 
 22) Zasto je ovaj link obrisan, ta tema je veoma vazna:
 More about IdealGraphVisualizer you can find at https://docs.oracle.com/en/graalvm/enterprise/19/guide/tools/ideal-graph-visualizer.html
 -----> Kao za komentar 17. Ukoliko zelimo da obradimo i ovu temu, mislim da je potrebno dati neka uputstva cemu to sluzi, kako funkcionise, definisati neke stvari. Nisam sigurna da sam sve to dobro razumela da bih se upustala u odetaljnu obradu. 
 
-23)
-TODO plugins etc --- za ovo treba samo postaviti link, znam da sam negde to u okviru graal projekta videla da postoji, dakle samo link na taj dokument 
------> Ispravljeno.
-
 24)
 Nisam sigurna da je potrebno kopirati onilki tekst sa graal strane, svaki copy-paste je u sustini los. Bolje je da se samo stave ti linkovi bez komiranog teksta ili da se kaze na kom linku moze da se pogelda struktura direktorijuma...
 
-
 25) GraalVM getting started --- mislim da graal ima svoj getting started i da je ovo neki nas interni getting started koji bi trebalo da se drugacije zove. Na primer, getting started for phd students ili tako nesto?
+
+26) Prvi pasus razbijte u listu stavki koje ce biti obradjene kako bi se ujednacio stil i kako bi se poboljsala citljivost tog pasusa.
+
 
