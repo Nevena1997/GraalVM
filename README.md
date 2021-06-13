@@ -58,7 +58,7 @@ In order to successfully build Graal, you need a command-line tool called `mx`.
 
 ### Clone mx repository
 
-`mx` is a command line based tool for managing the development of (primarily) Java code. It includes a mechanism for specifying the dependencies as well as making it simple to build, test, run, update, etc. the code and built artifacts. `mx` contains support for developing code spread across multiple source repositories. `mx` is written in Python and is easily extendable.
+[`mx`](https://github.com/graalvm/mx) is a command line based tool for managing the development of (primarily) Java code. It includes a mechanism for specifying the dependencies as well as making it simple to build, test, run, update, etc. the code and built artifacts. `mx` contains support for developing code spread across multiple source repositories. `mx` is written in Python and is easily extendable.
 
 First, clone the `mx` repository:
 ```sh
@@ -220,8 +220,13 @@ sys	0m0.008s
 ## Native image build phases (short):
 
 // TODO
-
+- **Classlist**:
+- **Setup**:
 - **Analysis**: going through all Java functions needed in program. You cannot take whole Java standard library and put it into executable, so this phase finds out all important and used functions and takes them, compiles them and make binaries from them which are part of created executable.
+- **Universe**:
+- **Compile**:
+- **Image**:
+- **Write**:
 
 ## Hosted and non-hosted code
 
