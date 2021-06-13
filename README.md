@@ -18,9 +18,22 @@ In order to successfully build and run Graal projects, one needs to have the fol
 ### Setting up IntelliJ IDEA
 
 Download and install the latest [IntelliJ IDEA Community Edition]( https://www.jetbrains.com/idea/download/).
-!!!!https://github.com/graalvm/mx/blob/master/docs/IDE.md.!!!!
-// TODO plugins etc
+Change the IntelliJ maximum memory to 2 GB or more. As per the [instructions](https://www.jetbrains.com/idea/help/increasing-memory-heap.html#d1366197e127), from the main menu choose **Help | Edit Custom VM Options** and modify the **-Xmx** and **-Xms** options.
 
+Enable parallel builds in **Preferences > Build, Execution, Deployment > Compiler > Compile independent modules in parallel**.
+
+Open IntelliJ and go to **Preferences > Plugins > Browse Repositories**. Install the following plugins:
+
+* [Eclipse Code Formatter](https://plugins.jetbrains.com/plugin/6546): formats code according to Eclipse
+* [Checkstyle-IDEA](https://plugins.jetbrains.com/plugin/1065): runs style checks as you develop
+* [Save Actions](https://plugins.jetbrains.com/plugin/7642): allows code reformatting on save similar to Eclipse
+* [FindBugs-IDEA](https://plugins.jetbrains.com/plugin/3847): looks for suspicious code
+* [Python Plugin](https://plugins.jetbrains.com/idea/plugin/631-python): python plugin
+* [Markdown Navigator](https://plugins.jetbrains.com/plugin/7896-markdown-navigator): markdown plugin
+
+Check that the bundled Ant plugin is enabled in **Preferences > Plugins > Installed** (you may get `Unknown artifact properties: ant-postprocessing.` errors in your project artifacts otherwise).
+
+You can read more setting up IntelliJ IDEA [here](https://github.com/graalvm/mx/blob/master/docs/IDE.md).
 
 ## Installation
 
@@ -147,12 +160,12 @@ $ mx --env ni-ce build
 
 Invoking `mx build` from `/substratevm` directory builds `substratevm` project. After the build is completed, you can find `native-image` executable inside `latest_graalvm_home/bin` directory. You can also add this directory to your `PATH` in order to invoke `native-image` from anywhere on the system. Invoking `java` or `javac` will then invoke GraalVM `latest_graalvm_home/bin/java` or `latest_graalvm_home/bin/javac`. You can also use `mx graalvm-home` to find the path to the `latest_graalvm_home` directory, which you can then use in your shell configuration files.
 
-Now we can test the `native-image` tool that we just built.
+Now you can test the `native-image` tool that we just built.
 
 
 ## Creating a native image
 
-Suppose we have a file `HelloWorld.java` with the following contents:
+Suppose you have a file `HelloWorld.java` with the following contents:
 ```java
 import java.lang.*;
 
@@ -163,12 +176,12 @@ public class HelloWorld {
 }
 ```
 
-We can start by compiling the source:
+You can start by compiling the source:
 ```sh
 $ java HelloWorld.java
 ```
 
-We can verify that the compilation was successful by running the compiled class:
+You can verify that the compilation was successful by running the compiled class:
 ```sh
 $ time java HelloWorld
 Hello World!
@@ -177,13 +190,13 @@ user	0m0.094s
 sys	0m0.039s
 ```
 
-Now we can make a native image (we will explain these phases in the following sections):
+Now you can make a native image (we will explain these phases in the following sections):
 ```sh
 $ native-image HelloWorld
 // TODO add output
 ```
 
-This creates an executable named `helloworld` which does not require a JVM to be run, which significantly reduces execution time, which we can simply verify:
+This creates an executable named `helloworld` which does not require a JVM to be run, which significantly reduces execution time, which you can simply verify:
 ```sh
 $ time ./helloworld
 Hello World!
@@ -196,10 +209,9 @@ sys	0m0.008s
 
 // TODO 
 
-- **Analysis**: going through all Java functions nedeed in program. You cannot take whole Java standard library and put it into executable, so this phase finds out all important and used functions and takes them, compiles them and make binaries from them which are part of 
-created executable.
+- **Analysis**: going through all Java functions nedeed in program. You cannot take whole Java standard library and put it into executable, so this phase finds out all important and used functions and takes them, compiles them and make binaries from them which are part of created executable.
 
-We can distinct **hosted** and **non-hosted** code. Hosted code is Java code that executes during building of native image of the program. On the other hand non-hosted code is part of code that runs during program execution. There is some code that executes only during build, and some code is used only in execution. To distinct those codes, annotations are used. Some classes are partially hosted, partially non-hosted, so annotations help to distinct those types of codes.
+You can distinct **hosted** and **non-hosted** code. Hosted code is Java code that executes during building of native image of the program. On the other hand non-hosted code is part of code that runs during program execution. There is some code that executes only during build, and some code is used only in execution. To distinct those codes, annotations are used. Some classes are partially hosted, partially non-hosted, so annotations help to distinct those types of codes.
 
 
 ## Debugging
@@ -261,7 +273,7 @@ Command `bt` gives us backtrace of current stack.
 
 ### Debugging hosted code
 
-If you want to debug hosted code, you can use standard debugger from IDE. During build of image using `native-image` tool, we have to specify that we want debugging of hosted code using `--debug-attach`.
+If you want to debug hosted code, you can use standard debugger from IDE. During build of image using `native-image` tool, you have to specify that we want debugging of hosted code using `--debug-attach`.
 ```sh
 $ native-image --debug-attach HelloWorld
 ```
@@ -276,5 +288,6 @@ To build an executable and see it's internal representation type the following:
 $ native-image HelloWorld -H:Dump=:3 -H:MethodFilter=HelloWorld.main -H:Optimize=0 -H:PrintGraph=Network
 ```
 
-## Git
-## More 
+## More
+You can read more about GraalVM community contributors [here](https://www.graalvm.org/community/contributors/).
+You can read more about GitHub[here](https://docs.github.com/en/github/collaborating-with-pull-requests/proposing-changes-to-your-work-with-pull-requests).
