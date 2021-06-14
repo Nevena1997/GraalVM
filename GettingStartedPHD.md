@@ -1,4 +1,4 @@
-# Getting started (for phd students)
+# Understanding GraalVM - Overview, Building & Contributing
 
 **GraalVM** is a virtual machine which can run different languages. First idea was to make Java faster, but soon it became much more: one runtime for many languages. You can read more about GraalVM [here](https://www.graalvm.org/docs/introduction/).
 
