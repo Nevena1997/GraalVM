@@ -1,4 +1,4 @@
-# Understanding GraalVM - Overview, Building & Contributing
+# Understanding GraalVM and native-image - Overview, Building & Contributing
 
 **GraalVM** is a virtual machine which can run different languages. First idea was to make Java faster, but soon it became much more: one runtime for many languages. You can read more about GraalVM [here](https://www.graalvm.org/docs/introduction/).
 
@@ -216,17 +216,6 @@ real	0m0.009s
 user	0m0.001s
 sys	0m0.008s
 ``` 
-
-## Native image build phases (short):
-
-// TODO
-- **Classlist**:
-- **Setup**:
-- **Analysis**: going through all Java functions needed in program. You cannot take whole Java standard library and put it into executable, so this phase finds out all important and used functions and takes them, compiles them and make binaries from them which are part of created executable.
-- **Universe**:
-- **Compile**:
-- **Image**:
-- **Write**:
 
 ## Hosted and non-hosted code
 
