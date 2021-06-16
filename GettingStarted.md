@@ -21,14 +21,6 @@ In order to successfully build and run Graal projects, one needs to have the fol
 - [`zlib`](https://www.zlib.net/), for Ubuntu the package is named `zlib1g` 
 
 
-### Setting up IntelliJ IDEA
-
-IntelliJ IDEA is a commonly used IDE for developing GraalVM.
-
-Download and install the latest [IntelliJ IDEA Community Edition]( https://www.jetbrains.com/idea/download/).
-
-You can read more about setting up IntelliJ IDEA for GraalVM project [here](https://github.com/graalvm/mx/blob/master/docs/IDE.md).
-
 ## Installation
 
 ### Clone graal repository
@@ -37,26 +29,12 @@ First, clone the entire [Graal](https://github.com/oracle/graal/) repository:
 $ git clone https://github.com/oracle/graal
 ```
 
-This repository consists of several subdirectories:
-* [GraalVM SDK](https://github.com/oracle/graal/blob/master/sdk/README.md) contains long term supported APIs of GraalVM.
-* [GraalVM compiler](https://github.com/oracle/graal/blob/master/tree/master/compiler/README.md) written in Java that supports both dynamic and static compilation and can integrate with
-the Java HotSpot VM or run standalone.
-* [Truffle](https://github.com/oracle/graal/blob/master/truffle/README.md) language implementation framework for creating languages and instrumentations for GraalVM.
-* [Tools](https://github.com/oracle/graal/blob/master/tools/README.md) contains a set of tools for GraalVM languages
-implemented with the instrumentation framework.
-* [Substrate VM](https://github.com/oracle/graal/blob/master/substratevm/README.md) framework that allows ahead-of-time (AOT)
-compilation of Java applications under closed-world assumption into executable
-images or shared objects.
-* [Sulong](https://github.com/oracle/graal/blob/master/sulong/README.md) is an engine for running LLVM bitcode on GraalVM.
-* [GraalWasm](https://github.com/oracle/graal/blob/master/wasm/README.md) is an engine for running WebAssembly programs on GraalVM.
-* [TRegex](https://github.com/oracle/graal/blob/master/regex/README.md) is an implementation of regular expressions which leverages GraalVM for efficient compilation of automata.
-* [VM](https://github.com/oracle/graal/blob/master/vm/README.md) includes the components to build a modular GraalVM image.
-* [VS Code](https://github.com/oracle/graal/blob/master/vscode/README.md) provides extensions to Visual Studio Code that support development of polyglot applications using GraalVM.
+You can learn more about its subdirectories [here](https://github.com/oracle/graal#repository-structure).
 
 In order to successfully build Graal, you need a command-line tool called `mx`.
 
 
-### Clone mx repository
+### Clone the mx repository
 
 [`mx`](https://github.com/graalvm/mx) is a command line based tool for managing the development of (primarily) Java code. It includes a mechanism for specifying the dependencies as well as making it simple to build, test, run, update, etc. the code and built artifacts. `mx` contains support for developing code spread across multiple source repositories. `mx` is written in Python and is easily extendable.
 
@@ -71,21 +49,13 @@ $ git clone https://github.com/graalvm/mx/
 $ export PATH=/path/to/mx/directory:$PATH
 ```
 
-You can also add this line to your shell configuration file. For `bash`, you can add it to your `.bashrc` file. Don't forget to reload your shell configuration after adding those changes. You can use command:
-```sh
-$ source ~/.bashrc. 
-```
+You can also add this line to your shell configuration file.
 
-Alternatively, you can also add an alias to your shell configuration file so you can use `mx` from anywhere:
-```sh
-$ alias mx=/path/to/mx/executable 
-``` 
-
-### Installing JDK with JVMCI
+### Installing the JDK with JVMCI
 
 In order to build Graal components, you will need a JDK with [JVMCI](https://openjdk.java.net/jeps/243) enabled. These specific JDK versions can be either downloaded from [GraalVM organization](https://github.com/graalvm), or using `mx`. `JAVA_HOME` should point to a JDK with JVMCI enabled. It is recommended to use `labs-openjdk-11`.
 
-#### Downloading labs-openjdk-11 from GitHub repository
+#### Downloading labs-openjdk-11 from the GitHub repository
 
 Pick a release from [labs-openjdk-11 repository](https://github.com/graalvm/labs-openjdk-11/releases) with regards to your OS. You will need to extract the downloaded archive and set the `JAVA_HOME` to the extracted directory, for example (if you extracted `labs-openjdk-11` to `/usr/lib/java/labs-openjdk-11`):
 ```sh
@@ -182,12 +152,12 @@ You can verify that the compilation was successful by running the compiled class
 ```sh
 $ time java HelloWorld
 Hello World!
-real	0m0.229
+real	0m0.229s
 user	0m0.094s
 sys	0m0.039s
 ```
 
-Now you can make a native image (we will explain these phases in the following sections):
+Now you can make a native image:
 ```sh
 $ native-image HelloWorld
 [helloworld:6530]    classlist:  10,554.19 ms,  1.18 GB
