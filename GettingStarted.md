@@ -77,13 +77,13 @@ You will be prompted to select a JDK version.
 
 ## Building Graal projects
 
-The organizing principle of `mx` is a _suite_. More about suites you can learn [here]().
+The organizing principle of `mx` is a _suite_. More about suites you can learn [here](https://github.com/graalvm/mx#suites).
+
+The `/vm` suite allows you to build custom GraalVM distributions by specifying which components you wish to include. This can be done via command-line arguments, environment variables or files. More about that you can read [here](https://github.com/oracle/graal/blob/master/vm/README.md#vm-suite).
 
 Relevant commands for build process:
 - `mx build` command builds one suite (if you want to build a specific Graal subproject like Truffle, Sulong, compiler etc, you should go to the specific directory and then invoke `mx build` from there)
 - `mx graalvm-home` shows the path to the latest build output directory, which is located in `sdk/` directory - you should have two symbolic links pointing to `latest_graalvm` and `latest_graalvm_home`. `latest_graalvm_home` points to the latest build output.
-
-The `/vm` suite allows you to build custom GraalVM distributions by specifying which components you wish to include. This can be done via command-line arguments, environment variables or files. More about that you can read [here](https://github.com/oracle/graal/blob/master/vm/README.md#vm-suite).
 
 
 ### Building substratevm
