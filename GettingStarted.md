@@ -77,51 +77,14 @@ You will be prompted to select a JDK version.
 
 ## Building Graal projects
 
-The organizing principle of `mx` is a _suite_. A suite is both a directory and the container for the components of the suite. A suite may import and depend on other suites.
-
-The definition of a suite and its components is located in a file named `suite.py` in the `mx` metadata directory of the primary suite. This is the directory named `mx.<suite name>` in the suite's top level directory. For example, for the compiler suite, it is `mx.compiler`.
+The organizing principle of `mx` is a _suite_. More about suites you can learn [here]().
 
 Relevant commands for build process:
 - `mx build` command builds one suite (if you want to build a specific Graal subproject like Truffle, Sulong, compiler etc, you should go to the specific directory and then invoke `mx build` from there)
 - `mx graalvm-home` shows the path to the latest build output directory, which is located in `sdk/` directory - you should have two symbolic links pointing to `latest_graalvm` and `latest_graalvm_home`. `latest_graalvm_home` points to the latest build output.
 
-The `/vm` suite allows you to build custom GraalVM distributions by specifying which components you wish to include. This can be done via command-line arguments, environment variables or files.
+The `/vm` suite allows you to build custom GraalVM distributions by specifying which components you wish to include. This can be done via command-line arguments, environment variables or files. More about that you can read [here](https://github.com/oracle/graal/blob/master/vm/README.md#vm-suite).
 
-### Specifying components to build via command-line arguments
-
-You can specify a list of components to include via `--dynamicimports` (`--dy` for short) option when invoking `mx build`, for example:
-```sh
-$ mx --dynamicimports /substratevm,/sulong,/truffle build
-```
-Note that you are referencing the components relatively to the root of the Graal repository.
-
-### Specifying components to build via environment variables
-
-You can also specify which components you wish to include via `DYNAMIC_IMPORTS` environment variable, for example:
-```sh
-$ export DYNAMIC_IMPORTS=/substratevm,/sulong,/truffle
-$ mx build
-```
-
-Or, even simpler:
-```sh
-$ DYNAMIC_IMPORTS=/substratevm,/sulong,/truffle mx build
-```
-
-### Specifying components to build via environment files
-
-`mx` metadata directory contains environment files where you can specify you own environment variable set. For example, the `mx.vm` metadata directory inside the `/vm` component contains `native-ce` environment file with the following contents:
-```sh
-DYNAMIC_IMPORTS=/substratevm
-DISABLE_INSTALLABLES=true
-EXCLUDE_COMPONENTS=pbm
-NATIVE_IMAGES=native-image,lib:native-image-agent
-```
-
-You can specify which environment file `mx` should use by passing it as an argument to `--env` option, for example:
-```sh
-$ mx --env ni-ce build
-```
 
 ### Building substratevm
 
