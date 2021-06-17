@@ -1,7 +1,13 @@
 
 27) TODO deo https://github.com/Nevena1997/GraalVM/blob/main/README.md#native-image-build-phases-short 
 Da li je neko od vas mozda pronasao neku dokumentaciju na ovu temu? Nedostaje opis svake od faza build-ovanja.
+------> Ne postoji dokumentacija. Ali bi bilo lepo u nekom trenutku da se dopune ove faze.
 
 29) - Python 2.7, required in order to run our build tool
 kod mene je potreban i pythin 3 i python3-distutils?
 Ne znam koliko je dobro da se u sve to upetljavamo, npr ja sam instalirala na zahtev i libssl-dev i libz-dev, ne znam da li to spada u build-essential ili ne...
+
+30) Relevant commands for build process:
+- `mx build` command builds one suite (if you want to build a specific Graal subproject like Truffle, Sulong, compiler etc, you should go to the specific directory and then invoke `mx build` from there)
+- `mx graalvm-home` shows the path to the latest build output directory, which is located in `sdk/` directory - you should have two symbolic links pointing to `latest_graalvm` and `latest_graalvm_home`. `latest_graalvm_home` points to the latest build output.
+Da li mozda postoji neki link ka dokumentaciji za ove naredbe?
